@@ -1,6 +1,28 @@
+"use client"
+
+import { useEffect } from "react";
 import Image from "next/image";
 
 export default function Home() {
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/log`, {
+      method: 'POST',
+      body: JSON.stringify({
+        log: "2 banana, 2 apple, 1 orange, 1 banana, 1 apple, 1 portion butter, 2 portions oil, 14 sausages, 1 kohlrabi"
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.error('Fetch error:', err);
+      });
+  }, [])
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
