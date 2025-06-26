@@ -25,6 +25,6 @@ jobs:
             echo "Inside $(pwd)"
             git pull origin main
             npm install
-            npm run build
+            NODE_ENV=production npm run build
             pm2 restart all || npm run start &
           EOF
