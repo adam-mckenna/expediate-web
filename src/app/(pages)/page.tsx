@@ -13,7 +13,7 @@ type Log = {
   }>;
 };
 
-export default function Home() {
+const Home = () => {
   const [results, setResults] = useState<Log | null>();
 
   const handleOnFormSubmit = (e: FormEvent) => {
@@ -78,4 +78,6 @@ export default function Home() {
       )}
     </main>
   );
-}
+};
+
+export default Home;
