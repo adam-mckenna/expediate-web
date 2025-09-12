@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { breeSerif } from "./layout";
 
 type Log = {
   totalScore: number;
@@ -20,11 +21,11 @@ const Home = () => {
     e.preventDefault();
 
     const form = e.currentTarget as HTMLFormElement;
-    const log = (form.elements.namedItem("log") as HTMLTextAreaElement).value;
+    const { value } = form.elements.namedItem("log") as HTMLTextAreaElement;
 
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/log`, {
       method: "POST",
-      body: JSON.stringify({ log }),
+      body: JSON.stringify({ value }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -41,13 +42,22 @@ const Home = () => {
   return (
     <main className="grid justify-center min-w-dvw mt-32 gap-16">
       <form className="flex flex-wrap gap-4 w-xl" onSubmit={handleOnFormSubmit}>
-        <h1 className="mb-4 text-3xl font-black w-full text-center text-slate-900">
-          What did you eat today?
-        </h1>
+        <header className="w-full">
+          <p
+            className={`${breeSerif.className} text-3xl font-black w-full text-center text-slate-900`}
+          >
+            Hey there. 👋
+          </p>
+          <h1
+            className={`${breeSerif.className} mb-4 text-3xl font-black w-full text-center text-slate-900`}
+          >
+            What did you eat today?
+          </h1>
+        </header>
 
         <textarea
           name="log"
-          className="bg-white p-4 rounded text-lg resize-none shadow-xl w-full min-h-32 h-fit transition-all focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2"
+          className="bg-white p-4 rounded text-lg resize-none shadow-xl w-full min-h-32 h-fit placeholder:text-[#B3B3B3] transition-all focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2"
           placeholder="1 portion oats, 2 bananas, 1 tbsp peanut butter..."
         />
 

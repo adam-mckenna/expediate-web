@@ -1,22 +1,18 @@
-import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
-import "./../globals.css";
+"use client";
+
 import Link from "next/link";
+import { Inter, Bree_Serif } from "next/font/google";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
+import "./../globals.css";
 
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
+export const breeSerif = Bree_Serif({
+  subsets: ["latin"],
+  weight: "400",
+});
 
-export const metadata: Metadata = {
-  title: "Expediate",
-  description: "Simple food tracking for athletes",
-};
+const inter = Inter({
+  subsets: ["latin"],
+});
 
 const RootLayout = ({
   children,
@@ -24,18 +20,30 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => (
   <html lang="en">
-    <body
-    // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    >
-      <header className="bg-white p-4 flex justify-between">
-        <Link href="/">Expediate</Link>
+    <head>
+      <title>Expediate</title>
+      <meta name="description" content="Simple food tracking for athletes" />
+    </head>
+
+    <body className={`${breeSerif.className} ${inter.className} antialiased`}>
+      <header className="bg-white p-6 flex justify-between items-center">
+        <Link
+          className={`${breeSerif.className} text-[#1E1E1E] text-xl mb-[1px]`}
+          href="/"
+        >
+          Expedi<span className="text-[#BF6A02]/60">ate</span>
+        </Link>
 
         <nav className="flex gap-4">
           <ul>
-            <Link href="/about">About</Link>
+            <Link className="text-[#1E1E1E]" href="/about">
+              About
+            </Link>
           </ul>
           <ul>
-            <Link href="/dqs-explained">DQS Explained</Link>
+            <Link className="text-[#1E1E1E]" href="/dqs-explained">
+              DQS Explained
+            </Link>
           </ul>
         </nav>
       </header>
