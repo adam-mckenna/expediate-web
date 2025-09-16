@@ -40,7 +40,7 @@ const Home = () => {
   };
 
   return (
-    <main className="grid justify-center min-w-dvw mt-32 gap-16">
+    <main className="grid justify-center min-w-dvw min-h-[calc(100vh-174px)] items-center gap-16">
       <form className="flex flex-wrap gap-4 w-xl" onSubmit={handleOnFormSubmit}>
         <header className="w-full">
           <p
@@ -57,13 +57,18 @@ const Home = () => {
 
         <textarea
           name="log"
-          className="bg-white p-4 rounded text-lg resize-none shadow-xl w-full min-h-32 h-fit placeholder:text-[#B3B3B3] transition-all focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2"
-          placeholder="1 portion oats, 2 bananas, 1 tbsp peanut butter..."
+          className="bg-white p-4 resize-none w-full h-[54px] overflow-hidden text-slate-900 rounded-xl border border-[#C3C3C3] placeholder:text-[#B3B3B3] transition-all focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2"
+          placeholder="1 portion oats, 2 apples, 500ml milk, handful fries..."
         />
 
-        <button className="w-full bg-orange-400 py-2 text-white text-lg font-black uppercase tracking-wider rounded shadow-xl cursor-pointer transition-all hover:bg-orange-500 focus:bg-orange-500 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2">
-          Send
-        </button>
+        <div className="w-full flex justify-center gap-2">
+          <button className="px-6 bg-white rounded border-b-2 border-slate-300 py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-slate-200 focus:bg-slate-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2">
+            Learn more
+          </button>
+          <button className="px-6 bg-orange-400 rounded border-b-2 border-orange-800 py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-orange-500 focus:bg-orange-500 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2">
+            Get results
+          </button>
+        </div>
       </form>
 
       {results ? (

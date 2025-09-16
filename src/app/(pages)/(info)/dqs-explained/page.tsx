@@ -1,5 +1,5 @@
 const DQSExplainedPage = () => (
-  <main>
+  <main className="text-slate-800">
     <header className="min-h-40 flex items-center justify-center">
       <h1 className="font-medium text-xl">DQS Explained</h1>
     </header>
