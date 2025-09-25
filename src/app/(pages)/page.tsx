@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { breeSerif } from "./layout";
 
 type Log = {
   totalScore: number;
@@ -44,12 +43,12 @@ const Home = () => {
       <form className="flex flex-wrap gap-4 w-xl" onSubmit={handleOnFormSubmit}>
         <header className="w-full">
           <p
-            className={`${breeSerif.className} text-3xl font-black w-full text-center text-slate-900`}
+            className={`text-3xl font-black w-full text-center text-slate-900`}
           >
             Hey there. 👋
           </p>
           <h1
-            className={`${breeSerif.className} mb-4 text-3xl font-black w-full text-center text-slate-900`}
+            className={`mb-4 text-3xl font-black w-full text-center text-slate-900`}
           >
             What did you eat today?
           </h1>

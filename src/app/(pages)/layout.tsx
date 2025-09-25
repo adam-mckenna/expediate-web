@@ -5,7 +5,7 @@ import { Inter, Bree_Serif } from "next/font/google";
 
 import "./../globals.css";
 
-export const breeSerif = Bree_Serif({
+const breeSerif = Bree_Serif({
   subsets: ["latin"],
   weight: "400",
 });
