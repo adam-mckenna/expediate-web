@@ -30,9 +30,7 @@ const Home = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
-        setResults(data);
-      })
+      .then(setResults)
       .catch((err) => {
         console.error("Fetch error:", err);
       });
