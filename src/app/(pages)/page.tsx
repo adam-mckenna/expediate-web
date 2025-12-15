@@ -1,20 +1,12 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 
-type Log = {
-  totalScore: number;
-  scoredLogs: Array<{
-    category: string;
-    quantity: number;
-    unit: string | null;
-    food: string;
-    score: number;
-  }>;
-};
+import { useResults } from "../Context/ResultsContext";
+import { redirect } from "next/navigation";
 
 const Home = () => {
-  const [results, setResults] = useState<Log | null>();
+  const { setResults } = useResults();
 
   const handleOnFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -24,13 +16,14 @@ const Home = () => {
 
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/log`, {
       method: "POST",
-      body: JSON.stringify({ value }),
+      body: JSON.stringify({ log: value }),
       headers: {
         "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
       .then(setResults)
+      .then(redirect("/results"))
       .catch((err) => {
         console.error("Fetch error:", err);
       });
@@ -40,14 +33,10 @@ const Home = () => {
     <main className="grid justify-center min-w-dvw min-h-[calc(100vh-174px)] items-center gap-16">
       <form className="flex flex-wrap gap-4 w-xl" onSubmit={handleOnFormSubmit}>
         <header className="w-full">
-          <p
-            className={`text-3xl font-black w-full text-center text-slate-900`}
-          >
+          <p className="text-3xl font-black w-full text-center text-slate-900">
             Hey there. 👋
           </p>
-          <h1
-            className={`mb-4 text-3xl font-black w-full text-center text-slate-900`}
-          >
+          <h1 className="mb-4 text-3xl font-black w-full text-center text-slate-900">
             What did you eat today?
           </h1>
         </header>
@@ -67,27 +56,6 @@ const Home = () => {
           </button>
         </div>
       </form>
-
-      {results ? (
-        <div className="grid flex-wrap gap-4">
-          <h2 className="font-semibold text-2xl w-full text-center">
-            Your results
-          </h2>
-
-          <p className="font-bold">Total DQS: {results.totalScore}</p>
-
-          <div>
-            <p className="font-bold">Here&apos;s what you ate today:</p>
-            <ul className="list-disc ml-5">
-              {results.scoredLogs.map((log, i) => (
-                <li key={i}>{log.food}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      ) : (
-        <></>
-      )}
     </main>
   );
 };
