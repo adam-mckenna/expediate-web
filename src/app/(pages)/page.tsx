@@ -1,32 +1,24 @@
 "use client";
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
-import { useResults } from "../Context/ResultsContext";
-import { redirect } from "next/navigation";
+import { useLogFood } from "../../lib/hooks/useLogFood";
 
 const Home = () => {
-  const { setResults } = useResults();
+  const [loggedFood, setLoggedFood] = useState("");
+  const { mutate: logFood, isPending, error } = useLogFood();
 
   const handleOnFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    const form = e.currentTarget as HTMLFormElement;
-    const { value } = form.elements.namedItem("log") as HTMLTextAreaElement;
-
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/log`, {
-      method: "POST",
-      body: JSON.stringify({ log: value }),
-      headers: {
-        "Content-Type": "application/json",
+    logFood(
+      { log: loggedFood },
+      {
+        onSuccess: () => {
+          setLoggedFood("");
+        },
       },
-    })
-      .then((res) => res.json())
-      .then(setResults)
-      .then(redirect("/results"))
-      .catch((err) => {
-        console.error("Fetch error:", err);
-      });
+    );
   };
 
   return (
@@ -42,17 +34,31 @@ const Home = () => {
         </header>
 
         <textarea
-          name="log"
+          value={loggedFood}
+          onChange={({ target }) => setLoggedFood(target.value)}
           className="bg-white p-4 resize-none w-full h-[54px] overflow-hidden text-slate-900 rounded-xl border border-[#C3C3C3] placeholder:text-[#B3B3B3] transition-all focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2"
           placeholder="1 portion oats, 2 apples, 500ml milk, handful fries..."
         />
+
+        {error && (
+          <div className="w-full p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+            <p className="font-semibold">Error:</p>
+            <p>
+              {error instanceof Error ? error.message : "An error occurred"}
+            </p>
+          </div>
+        )}
 
         <div className="w-full flex justify-center gap-2">
           <button className="px-6 bg-white rounded border-b-2 border-slate-300 py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-slate-200 focus:bg-slate-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2">
             Learn more
           </button>
-          <button className="px-6 bg-orange-400 rounded border-b-2 border-orange-800 py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-orange-500 focus:bg-orange-500 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2">
-            Get results
+          <button
+            type="submit"
+            disabled={!loggedFood.trim() || isPending}
+            className="px-6 bg-orange-400 rounded border-b-2 border-orange-800 py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-orange-500 focus:bg-orange-500 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isPending ? "Processing..." : "Get results"}
           </button>
         </div>
       </form>

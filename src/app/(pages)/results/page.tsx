@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 
-import { useResults } from "@/app/Context/ResultsContext";
+import { useResults } from "@/lib/hooks/useResults";
 
 const Results = () => {
   const { results } = useResults();
@@ -23,9 +23,18 @@ const Results = () => {
         <div>
           <p className="font-bold">Here&apos;s what you ate today:</p>
           <ul className="list-disc ml-5">
-            {results.scoredLogs.map((log, i) => (
-              <li key={i}>{log.food}</li>
-            ))}
+            {Object.values(results.logs)
+              .filter((category) => category && category.logs.length > 0)
+              .map((category, i) => (
+                <li key={i}>
+                  {category.logs.map((log, j) => (
+                    <span key={j}>
+                      {log.food}
+                      {j < category.logs.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+                </li>
+              ))}
           </ul>
         </div>
       </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Inter, Bree_Serif } from "next/font/google";
 
 import "./../globals.css";
-import { ResultsProvider } from "../Context/ResultsContext";
+import { QueryProvider } from "../../providers/QueryProvider";
 
 const breeSerif = Bree_Serif({
   subsets: ["latin"],
@@ -49,7 +49,7 @@ const RootLayout = ({
         </nav>
       </header>
 
-      <ResultsProvider>{children}</ResultsProvider>
+      <QueryProvider>{children}</QueryProvider>
 
       <footer className="flex items-center justify-center h-24">
         <p className="text-sm text-neutral-700">
