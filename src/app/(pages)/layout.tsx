@@ -4,7 +4,10 @@ import Link from "next/link";
 import { Inter, Bree_Serif } from "next/font/google";
 
 import "./../globals.css";
-import { QueryProvider } from "../../providers/QueryProvider";
+
+import { QueryProvider } from "@/providers/QueryProvider";
+import { ErrorBoundary } from "@/components";
+import { ROUTES } from "@/lib/constants";
 
 const breeSerif = Bree_Serif({
   subsets: ["latin"],
@@ -30,26 +33,28 @@ const RootLayout = ({
       <header className="bg-white p-6 flex justify-between items-center">
         <Link
           className={`${breeSerif.className} text-[#1E1E1E] text-xl mb-[1px]`}
-          href="/"
+          href={ROUTES.HOME}
         >
           Expedi<span className="text-[#BF6A02]/60">ate</span>
         </Link>
 
         <nav className="flex gap-4">
           <ul>
-            <Link className="text-[#1E1E1E]" href="/about">
+            <Link className="text-[#1E1E1E]" href={ROUTES.ABOUT}>
               About
             </Link>
           </ul>
           <ul>
-            <Link className="text-[#1E1E1E]" href="/dqs-explained">
+            <Link className="text-[#1E1E1E]" href={ROUTES.DQS_EXPLAINED}>
               DQS Explained
             </Link>
           </ul>
         </nav>
       </header>
 
-      <QueryProvider>{children}</QueryProvider>
+      <ErrorBoundary>
+        <QueryProvider>{children}</QueryProvider>
+      </ErrorBoundary>
 
       <footer className="flex items-center justify-center h-24">
         <p className="text-sm text-neutral-700">

@@ -1,8 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import { logApi } from "../api/log";
-import { LogFoodRequest, Results } from "../types/api";
+import { logApi } from "@/lib/api";
+import { LogFoodRequest, Results } from "@/lib/types";
+import { ROUTES } from "@/lib/constants";
 
 export const useLogFood = () => {
   const router = useRouter();
@@ -14,7 +15,7 @@ export const useLogFood = () => {
       // Cache the results with a query key
       queryClient.setQueryData(["results"], data);
       // Navigate to results page
-      router.push("/results");
+      router.push(ROUTES.RESULTS);
     },
   });
 };

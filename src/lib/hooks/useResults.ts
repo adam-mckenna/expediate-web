@@ -1,5 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
-import { Results } from "../types/api";
+
+import { Results } from "@/lib/types";
 
 export const useResults = () => {
   const queryClient = useQueryClient();

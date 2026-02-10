@@ -2,23 +2,43 @@
 
 import { FormEvent, useState } from "react";
 
-import { useLogFood } from "../../lib/hooks/useLogFood";
+import { useLogFood, useFormValidation } from "@/lib/hooks";
+import { UI_CONSTANTS } from "@/lib/constants";
+import { ErrorMessage } from "@/components";
 
 const Home = () => {
   const [loggedFood, setLoggedFood] = useState("");
   const { mutate: logFood, isPending, error } = useLogFood();
+  const { validationError, validate, clearError } = useFormValidation();
 
   const handleOnFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
+    // Clear previous validation errors.
+    clearError();
+
+    if (!validate(loggedFood)) {
+      return;
+    }
+
     logFood(
-      { log: loggedFood },
+      { log: loggedFood.trim() },
       {
         onSuccess: () => {
           setLoggedFood("");
+          clearError();
         },
       },
     );
+  };
+
+  const handleInputChange = (value: string) => {
+    setLoggedFood(value);
+    
+    // Clear validation error when user starts typing
+    if (validationError) {
+      clearError();
+    }
   };
 
   return (
@@ -35,30 +55,33 @@ const Home = () => {
 
         <textarea
           value={loggedFood}
-          onChange={({ target }) => setLoggedFood(target.value)}
-          className="bg-white p-4 resize-none w-full h-[54px] overflow-hidden text-slate-900 rounded-xl border border-[#C3C3C3] placeholder:text-[#B3B3B3] transition-all focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2"
-          placeholder="1 portion oats, 2 apples, 500ml milk, handful fries..."
+          onChange={({ target }) => handleInputChange(target.value)}
+          maxLength={UI_CONSTANTS.FORM.TEXTAREA.MAX_LENGTH}
+          className={`bg-white p-4 resize-none w-full h-[54px] overflow-hidden text-slate-900 rounded-xl border ${
+            validationError
+              ? "border-red-400"
+              : "border-[#C3C3C3]"
+          } placeholder:text-[#B3B3B3] transition-all focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2`}
+          placeholder={UI_CONSTANTS.FORM.TEXTAREA.PLACEHOLDER}
         />
 
-        {error && (
-          <div className="w-full p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-            <p className="font-semibold">Error:</p>
-            <p>
-              {error instanceof Error ? error.message : "An error occurred"}
-            </p>
-          </div>
-        )}
+        <ErrorMessage error={validationError || error} />
 
         <div className="w-full flex justify-center gap-2">
-          <button className="px-6 bg-white rounded border-b-2 border-slate-300 py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-slate-200 focus:bg-slate-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2">
-            Learn more
+          <button
+            type="button"
+            className="px-6 bg-white rounded border-b-2 border-slate-300 py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-slate-200 focus:bg-slate-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2"
+          >
+            {UI_CONSTANTS.BUTTONS.LEARN_MORE_TEXT}
           </button>
           <button
             type="submit"
             disabled={!loggedFood.trim() || isPending}
             className="px-6 bg-orange-400 rounded border-b-2 border-orange-800 py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-orange-500 focus:bg-orange-500 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isPending ? "Processing..." : "Get results"}
+            {isPending
+              ? UI_CONSTANTS.BUTTONS.SUBMIT_LOADING_TEXT
+              : UI_CONSTANTS.BUTTONS.SUBMIT_TEXT}
           </button>
         </div>
       </form>

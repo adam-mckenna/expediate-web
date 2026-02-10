@@ -2,13 +2,14 @@
 
 import { redirect } from "next/navigation";
 
-import { useResults } from "@/lib/hooks/useResults";
+import { useResults } from "@/lib/hooks";
+import { ROUTES } from "@/lib/constants";
 
 const Results = () => {
   const { results } = useResults();
 
   if (!results) {
-    redirect("/");
+    redirect(ROUTES.HOME);
   }
 
   return (
