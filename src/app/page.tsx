@@ -45,10 +45,10 @@ const Home = () => {
     <main className="grid justify-center min-w-dvw min-h-[calc(100vh-174px)] items-center gap-16">
       <form className="flex flex-wrap gap-4 w-xl" onSubmit={handleOnFormSubmit}>
         <header className="w-full">
-          <p className="text-3xl font-black w-full text-center text-slate-900">
+          <p className="font-serif text-3xl font-bold w-full text-center text-slate-900">
             Hey there. 👋
           </p>
-          <h1 className="mb-4 text-3xl font-black w-full text-center text-slate-900">
+          <h1 className="font-serif mb-4 text-3xl font-bold w-full text-center text-slate-900">
             What did you eat today?
           </h1>
         </header>
@@ -70,7 +70,7 @@ const Home = () => {
         <div className="w-full flex justify-center gap-2">
           <button
             type="button"
-            className="px-6 bg-white rounded border-b-2 border-slate-300 py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-slate-200 focus:bg-slate-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2"
+            className="px-4 rounded py-2 text-slate-900 uppercase tracking-wider cursor-pointer transition-all hover:bg-slate-200 focus:bg-slate-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2"
           >
             {UI_CONSTANTS.BUTTONS.LEARN_MORE_TEXT}
           </button>
