@@ -17,7 +17,9 @@ const RootLayout = ({
       <meta name="description" content="Simple food tracking for athletes" />
     </head>
 
-    <body className={`${inter.variable} ${breeSerif.variable} font-sans antialiased`}>
+    <body
+      className={`${inter.variable} ${breeSerif.variable} font-sans antialiased`}
+    >
       <Header />
 
       <ErrorBoundary>

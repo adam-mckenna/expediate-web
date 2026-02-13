@@ -6,3 +6,4 @@ export {
   type FoodCategory,
 } from "./foodCategories";
 export { UI_CONSTANTS } from "./ui";
+export { RESULTS_CONFIGS } from "./resultConfig";

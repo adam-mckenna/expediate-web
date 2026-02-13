@@ -7,3 +7,4 @@ export {
   extractErrorMessage,
   isRetryableError,
 } from "./errorHelpers";
+export { getResultsType, getResultsConfig } from "./resultConfig";

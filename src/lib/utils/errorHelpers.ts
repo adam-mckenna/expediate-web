@@ -69,8 +69,10 @@ export const extractErrorMessage = (errorData: unknown): string => {
  * @returns True if the error is retryable, false otherwise.
  */
 export const isRetryableError = (error: unknown): boolean => {
-  return error instanceof NetworkError || 
-         (error instanceof ApiError && 
-          error.statusCode !== undefined && 
-          error.statusCode >= 500);
+  return (
+    error instanceof NetworkError ||
+    (error instanceof ApiError &&
+      error.statusCode !== undefined &&
+      error.statusCode >= 500)
+  );
 };

@@ -22,10 +22,12 @@ export const apiClient = {
       });
     } catch (error) {
       if (error instanceof TypeError && error.message === "Failed to fetch") {
-        throw new NetworkError("Unable to connect to the server. Please check your internet connection.");
+        throw new NetworkError(
+          "Unable to connect to the server. Please check your internet connection.",
+        );
       }
       throw new NetworkError(
-        error instanceof Error ? error.message : "Network error occurred"
+        error instanceof Error ? error.message : "Network error occurred",
       );
     }
 
@@ -50,7 +52,7 @@ export const apiClient = {
       throw new ApiError(
         "Invalid JSON response from server",
         response.status,
-        error
+        error,
       );
     }
   },

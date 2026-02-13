@@ -2,7 +2,7 @@ import { Inter, Bree_Serif } from "next/font/google";
 
 /**
  * Font configuration for the application
- * 
+ *
  * These fonts are optimized by Next.js and can be used via CSS variables
  * or Tailwind classes throughout the app.
  */

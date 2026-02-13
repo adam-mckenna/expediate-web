@@ -5,6 +5,10 @@ import { logApi } from "@/lib/api";
 import { LogFoodRequest, Results } from "@/lib/types";
 import { ROUTES } from "@/lib/constants";
 
+/**
+ * Hook that logs food and navigates to the results page.
+ * @returns A mutation function that logs food and navigates to the results page.
+ */
 export const useLogFood = () => {
   const router = useRouter();
   const queryClient = useQueryClient();
