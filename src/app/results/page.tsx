@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { redirect } from "next/navigation";
 
 import {
@@ -11,7 +12,7 @@ import { getResultsConfig } from "@/lib/utils";
 import { useResults } from "@/lib/hooks";
 import { ProgressBar } from "@/components";
 
-const Results = () => {
+const ResultsContent = () => {
   /**
    * Gets the results data and categories from the useResults hook.
    */
@@ -149,6 +150,14 @@ const Results = () => {
         <div></div>
       </section>
     </main>
+  );
+};
+
+const Results = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResultsContent />
+    </Suspense>
   );
 };
 

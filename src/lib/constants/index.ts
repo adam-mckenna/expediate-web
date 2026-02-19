@@ -1,4 +1,4 @@
-export { ROUTES, type Route } from "./routes";
+export { ROUTES, URL_PARAMS, type Route } from "./routes";
 export { API_ENDPOINTS, type ApiEndpoint } from "./apiEndpoints";
 export {
   FOOD_CATEGORIES,
