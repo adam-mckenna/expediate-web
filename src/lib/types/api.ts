@@ -3,10 +3,10 @@ export type LogItem = {
   food: string;
   unit: string | null;
   quantity: number;
-  category: string;
 };
 
 export type CategoryLogs = {
+  name: string;
   score: number;
   logs: Array<LogItem>;
 };

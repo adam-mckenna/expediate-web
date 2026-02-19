@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-import { Results, CategoryLogs } from "@/lib/types";
+import { Results } from "@/lib/types";
 
 /**
  * Hook that retrieves results from React Query cache and organises the data.
@@ -22,10 +22,18 @@ export const useResults = () => {
         };
       }
 
-      const categories = Object.values(results.logs).filter(
-        (category): category is CategoryLogs =>
-          category !== undefined && category.logs.length > 0,
-      );
+      // Extract categories with their names from the object keys
+      const categories = Object.entries(results.logs)
+        .filter(
+          ([, category]) => category !== undefined && category.logs.length > 0,
+        )
+        .map(([name, category]) => ({
+          name: name
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (char) => char.toUpperCase()),
+          score: category.score,
+          logs: category.logs,
+        }));
 
       const positive = categories.filter(({ score }) => score > 0);
       const negative = categories.filter(({ score }) => score < 0);

@@ -2,9 +2,14 @@
 
 import { redirect } from "next/navigation";
 
-import { ROUTES } from "@/lib/constants";
+import {
+  ROUTES,
+  getCategoryPositiveMaxScore,
+  getCategoryNegativeMaxScore,
+} from "@/lib/constants";
 import { getResultsConfig } from "@/lib/utils";
 import { useResults } from "@/lib/hooks";
+import { ProgressBar } from "@/components";
 
 const Results = () => {
   /**
@@ -67,54 +72,75 @@ const Results = () => {
       <section className="max-w-[640px] mx-auto py-8 grid flex-wrap gap-4 text-gray-950">
         <h2 className="text-2xl w-full font-serif">Overview</h2>
 
-        <article>
-          <h3 className="text-[#757575]">Positive scores</h3>
+        {positiveCategories.length > 0 && (
+          <article className="mb-4">
+            <h3 className="text-[#757575]">Positive scores</h3>
 
-          <ul className="list-disc ml-5">
-            {positiveCategories.map((category, i) => (
-              <li key={i}>
-                {category.logs.map((log, j) => (
-                  <span key={j}>
-                    {log.food}
-                    {j < category.logs.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-              </li>
-            ))}
-          </ul>
-        </article>
+            <div className="grid gap-4 grid-cols-2 mt-2">
+              {positiveCategories.map((category, i) => {
+                const maxScore = getCategoryPositiveMaxScore(category.name);
+                return (
+                  <div key={i} className="flex flex-col gap-1.5">
+                    <div className="flex items-center gap-1.5">
+                      <p className="text-lg font-bold text-[#02542D]">
+                        +{category.score}
+                      </p>
+                      <h4 className="font-md font-medium text-[#02542D]">
+                        {category.name}
+                      </h4>
+                    </div>
+                    <ProgressBar current={category.score} max={maxScore} />
+                  </div>
+                );
+              })}
+            </div>
+          </article>
+        )}
 
-        <article>
-          <h3 className="text-[#757575]">Negative scores</h3>
-          <ul className="list-disc ml-5 mt-4">
-            {negativeCategories.map((category, i) => (
-              <li key={i}>
-                {category.logs.map((log, j) => (
-                  <span key={j}>
-                    {log.food}
-                    {j < category.logs.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-              </li>
-            ))}
-          </ul>
-        </article>
+        {negativeCategories.length > 0 && (
+          <article className="mb-4">
+            <h3 className="text-[#757575]">Negative scores</h3>
+            <div className="grid gap-4 grid-cols-2 mt-2">
+              {negativeCategories.map((category, i) => {
+                const maxScore = getCategoryNegativeMaxScore(category.name);
+                const absoluteScore = Math.abs(category.score);
+                return (
+                  <div key={i} className="flex flex-col gap-1.5">
+                    <div className="flex items-center gap-1.5">
+                      <p className="text-lg font-bold text-[#C00F0C]">
+                        {category.score}
+                      </p>
+                      <h4 className="font-md font-medium text-[#900B09]">
+                        {category.name}
+                      </h4>
+                    </div>
+                    <ProgressBar
+                      current={absoluteScore}
+                      max={maxScore}
+                      variant="negative"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </article>
+        )}
 
-        <article>
-          <h3 className="text-[#757575]">Other</h3>
-          <ul className="list-disc ml-5 mt-4">
-            {neutralCategories.map((category, i) => (
-              <li key={i}>
-                {category.logs.map((log, j) => (
-                  <span key={j}>
-                    {log.food}
-                    {j < category.logs.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-              </li>
-            ))}
-          </ul>
-        </article>
+        {neutralCategories.length > 0 && (
+          <article className="mb-4">
+            <h3 className="text-[#757575]">Other</h3>
+            <div className="grid gap-4 grid-cols-2 mt-2">
+              {neutralCategories.map((category, i) => (
+                <div key={i} className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-1.5">
+                    <p className="text-lg font-bold text-[#757575]">{category.score}</p>
+                    <h4 className="font-md font-medium text-[#757575]">{category.name}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+        )}
       </section>
 
       <section className="max-w-[640px] mx-auto py-8 grid flex-wrap gap-4 text-gray-950">

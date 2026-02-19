@@ -7,3 +7,9 @@ export {
 } from "./foodCategories";
 export { UI_CONSTANTS } from "./ui";
 export { RESULTS_CONFIGS } from "./resultConfig";
+export {
+  CATEGORY_POSITIVE_MAX_SCORES,
+  CATEGORY_NEGATIVE_MAX_SCORES,
+  getCategoryPositiveMaxScore,
+  getCategoryNegativeMaxScore,
+} from "./categoryMaxScores";
