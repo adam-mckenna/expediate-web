@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 
 import { useLogFood, useFormValidation } from "@/lib/hooks";
 import { UI_CONSTANTS } from "@/lib/constants";
-import { ErrorMessage } from "@/components";
+import { ErrorMessage, ChevronIcon } from "@/components";
 
 const Home = () => {
   const [loggedFood, setLoggedFood] = useState("");
@@ -69,11 +69,7 @@ const Home = () => {
             disabled={!loggedFood.trim() || isPending}
             className="absolute flex items-center justify-center top-0 right-2 mt-2 w-10 h-10 bg-neutral-200 rounded py-2 text-slate-900  uppercase tracking-wider cursor-pointer transition-all hover:bg-neutral-300 focus:bg-neutral-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <img
-              src="/img/icon-chevron.svg"
-              alt="arrow right"
-              className="w-4 h-4"
-            />
+            <ChevronIcon direction="right" className="w-4 h-4" />
           </button>
         </div>
 

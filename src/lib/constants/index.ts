@@ -3,6 +3,7 @@ export { API_ENDPOINTS, type ApiEndpoint } from "./apiEndpoints";
 export {
   FOOD_CATEGORIES,
   FOOD_CATEGORY_LABELS,
+  FOOD_CATEGORY_DESCRIPTIONS,
   type FoodCategory,
 } from "./foodCategories";
 export { UI_CONSTANTS } from "./ui";

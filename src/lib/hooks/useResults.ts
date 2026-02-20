@@ -53,9 +53,7 @@ export const useResults = () => {
           ([, category]) => category !== undefined && category.logs.length > 0,
         )
         .map(([name, category]) => ({
-          name: name
-            .replace(/-/g, " ")
-            .replace(/\b\w/g, (char) => char.toUpperCase()),
+          name: name,
           score: category.score,
           logs: category.logs,
         }));

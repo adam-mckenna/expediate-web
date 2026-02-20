@@ -1,8 +1,4 @@
-import {
-  UpArrowIcon,
-  NeutralIcon,
-  DownArrowIcon,
-} from "@/components/ResultIcons";
+import { UpArrowIcon, NeutralIcon, DownArrowIcon } from "@/components/icons";
 import type { ResultsType, ResultsConfig } from "@/lib/types/resultsConfig";
 
 export const RESULTS_CONFIGS: Record<ResultsType, ResultsConfig> = {

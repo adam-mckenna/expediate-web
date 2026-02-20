@@ -1,16 +1,121 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 import {
   ROUTES,
+  FOOD_CATEGORY_DESCRIPTIONS,
+  FOOD_CATEGORY_LABELS,
+  FoodCategory,
   getCategoryPositiveMaxScore,
   getCategoryNegativeMaxScore,
 } from "@/lib/constants";
 import { getResultsConfig } from "@/lib/utils";
 import { useResults } from "@/lib/hooks";
-import { ProgressBar } from "@/components";
+import { ProgressBar, ChevronIcon, InfoIcon } from "@/components";
+
+type CategoryBreakdownProps = {
+  category: {
+    name: string;
+    score: number;
+    logs: Array<{
+      score: number;
+      food: string;
+      unit: string | null;
+      quantity: number;
+    }>;
+  };
+  palette: "positive" | "negative" | "neutral";
+};
+
+const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  return (
+    <article
+      className={`grid grid-cols-12 ${palette === "positive" ? "bg-[#EBFFEE] border-l-2 border-[#02542D]" : palette === "negative" ? "bg-[#FEE9E7] border-l-2 border-[#900B09]" : "bg-[#F5F5F5] border-l-2 border-[#757575]"} p-6 pt-5 pb-8`}
+    >
+      <aside className="col-span-1">
+        <p className="sr-only">
+          Your score for {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
+        </p>
+        <p
+          className={`text-lg font-bold ${palette === "positive" ? "text-[#14AE5C]" : palette === "negative" ? "text-[#C00F0C]" : "text-[#757575]"}`}
+        >
+          {palette === "positive" && "+"}
+          {category.score}
+        </p>
+      </aside>
+
+      <div className="col-span-11">
+        <h3
+          className={`text-xl ${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"} font-serif mb-1.5`}
+        >
+          {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
+        </h3>
+        <p
+          className={`${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"} mb-4`}
+        >
+          {FOOD_CATEGORY_DESCRIPTIONS[category.name as FoodCategory]}
+        </p>
+
+        <div
+          className={`mb-4 space-y-2 overflow-hidden transition-all duration-300 ease-in-out ${
+            isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          {category.logs.map((log, index) => (
+            <div
+              key={index}
+              className={`flex flex-wrap gap-3 ${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"}`}
+            >
+              {palette !== "neutral" && (
+                <span
+                  className={`font-bold ${palette === "positive" ? "text-[#14AE5C]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"}`}
+                >
+                  {palette === "positive" && "+"}
+                  {log.score}
+                </span>
+              )}
+              <span className="flex flex-wrap gap-1.5">
+              <span>{log.quantity} {log.unit}</span>
+              <span className="font-bold">{log.food}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-end gap-4">
+          <Link
+            href={`${ROUTES.DQS_EXPLAINED}#${category.name}`}
+            className={`flex items-center p-2 gap-1.5 ${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"} ${palette === "positive" ? "hover:text-[#01402a]" : palette === "negative" ? "hover:text-[#7a0604]" : "hover:text-[#606060]"} transition-all focus:outline-none focus:ring-2 focus:ring-[#02542D] focus:ring-offset-2 rounded`}
+            aria-label={`Learn more about ${FOOD_CATEGORY_LABELS[category.name as FoodCategory]}`}
+          >
+            <span>Learn more</span>
+            <InfoIcon className="w-4 h-4" />
+          </Link>
+          <button
+            type="button"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className={`flex items-center p-2 gap-1.5 cursor-pointer ${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"} ${palette === "positive" ? "hover:text-[#01402a]" : palette === "negative" ? "hover:text-[#7a0604]" : "hover:text-[#606060]"} transition-all focus:outline-none focus:ring-2 focus:ring-[#02542D] focus:ring-offset-2 rounded`}
+            aria-label={isExpanded ? "Hide breakdown" : "Show breakdown"}
+            aria-expanded={isExpanded}
+          >
+            <span>{isExpanded ? "Hide breakdown" : "Show breakdown"}</span>
+            <ChevronIcon
+              direction="up"
+              className={`w-4 h-4 transition-transform duration-200 ${
+                isExpanded ? "" : "rotate-180"
+              }`}
+            />
+          </button>
+        </div>
+      </div>
+    </article>
+  );
+};
 
 const ResultsContent = () => {
   /**
@@ -87,7 +192,7 @@ const ResultsContent = () => {
                         +{category.score}
                       </p>
                       <h4 className="font-md font-medium text-[#02542D]">
-                        {category.name}
+                        {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
                       </h4>
                     </div>
                     <ProgressBar current={category.score} max={maxScore} />
@@ -112,7 +217,7 @@ const ResultsContent = () => {
                         {category.score}
                       </p>
                       <h4 className="font-md font-medium text-[#900B09]">
-                        {category.name}
+                        {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
                       </h4>
                     </div>
                     <ProgressBar
@@ -134,8 +239,12 @@ const ResultsContent = () => {
               {neutralCategories.map((category, i) => (
                 <div key={i} className="flex flex-col gap-1.5">
                   <div className="flex items-center gap-1.5">
-                    <p className="text-lg font-bold text-[#757575]">{category.score}</p>
-                    <h4 className="font-md font-medium text-[#757575]">{category.name}</h4>
+                    <p className="text-lg font-bold text-[#757575]">
+                      {category.score}
+                    </p>
+                    <h4 className="font-md font-medium text-[#757575]">
+                      {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
+                    </h4>
                   </div>
                 </div>
               ))}
@@ -144,10 +253,32 @@ const ResultsContent = () => {
         )}
       </section>
 
-      <section className="max-w-[640px] mx-auto py-8 grid flex-wrap gap-4 text-gray-950">
+      <section className="max-w-[640px] mx-auto pb-8 grid flex-wrap gap-4 text-gray-950">
         <h2 className="text-2xl w-full font-serif">Complete breakdown</h2>
 
-        <div></div>
+        {positiveCategories.map((category) => (
+          <CategoryBreakdown
+            key={category.name}
+            category={category}
+            palette="positive"
+          />
+        ))}
+
+        {negativeCategories.map((category) => (
+          <CategoryBreakdown
+            key={category.name}
+            category={category}
+            palette="negative"
+          />
+        ))}
+
+        {neutralCategories.map((category) => (
+          <CategoryBreakdown
+            key={category.name}
+            category={category}
+            palette="neutral"
+          />
+        ))}
       </section>
     </main>
   );

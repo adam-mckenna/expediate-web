@@ -36,7 +36,7 @@ export const decodeResults = (encoded: string): Results | null => {
     // Convert URL-safe base64 back to standard base64.
     // - becomes +, _ becomes /, and add back padding if needed.
     let base64 = encoded.replace(/-/g, "+").replace(/_/g, "/");
-    
+
     // Add padding if needed (base64 strings should be multiples of 4).
     const padding = base64.length % 4;
     if (padding) {
@@ -47,7 +47,9 @@ export const decodeResults = (encoded: string): Results | null => {
     const binaryString = atob(base64);
 
     // Convert binary string to Uint8Array.
-    const compressed = Uint8Array.from(binaryString, (char) => char.charCodeAt(0));
+    const compressed = Uint8Array.from(binaryString, (char) =>
+      char.charCodeAt(0),
+    );
 
     // Decompress using inflate (returns Uint8Array).
     const decompressed = pako.inflate(compressed);
