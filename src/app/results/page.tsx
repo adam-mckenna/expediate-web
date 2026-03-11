@@ -80,8 +80,10 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
                 </span>
               )}
               <span className="flex flex-wrap gap-1.5">
-              <span>{log.quantity} {log.unit}</span>
-              <span className="font-bold">{log.food}</span>
+                <span>
+                  {log.quantity} {log.unit}
+                </span>
+                <span className="font-bold">{log.food}</span>
               </span>
             </div>
           ))}
