@@ -31,25 +31,25 @@ type CategoryBreakdownProps = {
 };
 
 const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <article
-      className={`grid grid-cols-12 ${palette === "positive" ? "bg-[#EBFFEE] border-l-2 border-[#02542D]" : palette === "negative" ? "bg-[#FEE9E7] border-l-2 border-[#900B09]" : "bg-[#F5F5F5] border-l-2 border-[#757575]"} p-6 pt-5 pb-8`}
+      className={`grid grid-cols-24 ${palette === "positive" ? "bg-[#EBFFEE] border-l-2 border-[#02542D]" : palette === "negative" ? "bg-[#FEE9E7] border-l-2 border-[#900B09]" : "bg-[#F5F5F5] border-l-2 border-[#757575]"} p-6 pt-5 pb-8`}
     >
-      <aside className="col-span-1">
+      <aside className="col-span-3">
         <p className="sr-only">
           Your score for {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
         </p>
         <p
-          className={`text-lg font-bold ${palette === "positive" ? "text-[#14AE5C]" : palette === "negative" ? "text-[#C00F0C]" : "text-[#757575]"}`}
+          className={`text-3xl font-bold ${palette === "positive" ? "text-[#14AE5C]" : palette === "negative" ? "text-[#C00F0C]" : "text-[#757575]"}`}
         >
           {palette === "positive" && "+"}
           {category.score}
         </p>
       </aside>
 
-      <div className="col-span-11">
+      <div className="col-span-21">
         <h3
           className={`text-xl ${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"} font-serif mb-1.5`}
         >
@@ -240,10 +240,10 @@ const ResultsContent = () => {
                 <div key={i} className="flex flex-col gap-1.5">
                   <div className="flex items-center gap-1.5">
                     <p className="text-lg font-bold text-[#757575]">
-                      {category.score}
+                      {category.logs.length}
                     </p>
                     <h4 className="font-md font-medium text-[#757575]">
-                      {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
+                      unknown items logged
                     </h4>
                   </div>
                 </div>
