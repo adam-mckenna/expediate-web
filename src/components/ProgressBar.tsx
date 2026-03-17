@@ -24,7 +24,8 @@ export const ProgressBar = ({
         }
       : {
           width: `${percentage}%`,
-          background: "linear-gradient(to right, var(--color-green-gradient-from), var(--color-green-gradient-to))",
+          background:
+            "linear-gradient(to right, var(--color-green-gradient-from), var(--color-green-gradient-to))",
         };
 
   return (

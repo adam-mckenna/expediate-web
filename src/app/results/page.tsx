@@ -14,7 +14,13 @@ import {
 } from "@/lib/constants";
 import { getResultsConfig } from "@/lib/utils";
 import { useResults } from "@/lib/hooks";
-import { ProgressBar, ChevronIcon, InfoIcon, Tooltip, LogFoodField } from "@/components";
+import {
+  ProgressBar,
+  ChevronIcon,
+  InfoIcon,
+  Tooltip,
+  LogFoodField,
+} from "@/components";
 
 type CategoryBreakdownProps = {
   category: {
@@ -48,7 +54,7 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
           Your score for {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
         </p>
         <p
-          className={`text-3xl font-bold ${
+          className={`text-2xl sm:text-3xl font-bold ${
             palette === "positive"
               ? "text-emerald-600"
               : palette === "negative"
@@ -63,7 +69,7 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
 
       <div className="col-span-21">
         <h3
-          className={`text-xl ${
+          className={`text-sm sm:text-base md:text-xl ${
             palette === "positive"
               ? "text-emerald-900"
               : palette === "negative"
@@ -74,7 +80,7 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
           {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
         </h3>
         <p
-          className={`${
+          className={`text-xs sm:text-sm md:text-base ${
             palette === "positive"
               ? "text-emerald-900"
               : palette === "negative"
@@ -93,7 +99,7 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
           {category.logs.map((log, index) => (
             <div
               key={index}
-              className={`flex flex-wrap gap-3 ${
+              className={`flex flex-wrap gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base ${
                 palette === "positive"
                   ? "text-emerald-900"
                   : palette === "negative"
@@ -125,10 +131,10 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
           ))}
         </div>
 
-        <div className="flex justify-end gap-4">
+        <div className="flex justify-end gap-2 sm:gap-3 md:gap-4">
           <Link
             href={`${ROUTES.DQS_EXPLAINED}#${category.name}`}
-            className={`flex items-center p-2 gap-1.5 ${
+            className={`flex items-center px-2 py-1.5 sm:px-3 sm:py-2 gap-1 sm:gap-1.5 text-xs sm:text-sm ${
               palette === "positive"
                 ? "text-emerald-900 hover:text-emerald-700 focus:text-emerald-700 focus:ring-emerald-700"
                 : palette === "negative"
@@ -138,12 +144,12 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
             aria-label={`Learn more about ${FOOD_CATEGORY_LABELS[category.name as FoodCategory]}`}
           >
             <span>Learn more</span>
-            <InfoIcon className="w-4 h-4" />
+            <InfoIcon className="w-3 h-3 sm:w-4 sm:h-4" />
           </Link>
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className={`flex items-center p-2 gap-1.5 cursor-pointer ${
+            className={`flex items-center px-2 py-1.5 sm:px-3 sm:py-2 gap-1 sm:gap-1.5 text-xs sm:text-sm cursor-pointer ${
               palette === "positive"
                 ? "text-emerald-900 hover:text-emerald-700 focus:text-emerald-700 focus:ring-emerald-700"
                 : palette === "negative"
@@ -156,7 +162,7 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
             <span>{isExpanded ? "Hide breakdown" : "Show breakdown"}</span>
             <ChevronIcon
               direction="up"
-              className={`w-4 h-4 transition-transform duration-200 ${
+              className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-200 ${
                 isExpanded ? "" : "rotate-180"
               }`}
             />
@@ -197,9 +203,9 @@ const ResultsContent = () => {
 
   return (
     <main className="bg-white min-h-[calc(100vh-174px)]">
-      <header className={`w-full mb-2 ${backgroundColor} py-20`}>
-        <div className="max-w-[640px] mx-auto grid gap-8 grid-cols-14 items-start">
-          <div className="col-span-3">
+      <header className={`w-full mb-2 ${backgroundColor} py-10 md:py-20 px-6`}>
+        <div className="max-w-[640px] mx-auto grid gap-8 md:grid-cols-14 items-start">
+          <div className="md:col-span-3">
             <p className="font-serif text-md text-[var(--color-text-neutral-soft)]">
               Your score
             </p>
@@ -215,7 +221,7 @@ const ResultsContent = () => {
             </div>
           </div>
 
-          <div className="col-span-11 grid gap-2">
+          <div className="md:col-span-11 grid gap-2">
             <h2
               className={`font-serif text-3xl font-medium w-full ${textColor}`}
             >
@@ -229,7 +235,7 @@ const ResultsContent = () => {
         </div>
       </header>
 
-      <section className="max-w-[640px] mx-auto py-8 grid flex-wrap gap-4 text-gray-950">
+      <section className="max-w-[640px] mx-auto px-6 md:px-0 py-8 grid flex-wrap gap-4 text-gray-950">
         <h2 className="text-2xl w-full font-serif">Overview</h2>
 
         {positiveCategories.length > 0 && (
@@ -292,18 +298,12 @@ const ResultsContent = () => {
                       </p>
                       <Tooltip
                         content={
-                          FOOD_CATEGORY_DESCRIPTIONS[
-                            name as FoodCategory
-                          ]
+                          FOOD_CATEGORY_DESCRIPTIONS[name as FoodCategory]
                         }
                       >
                         <div className="flex items-center gap-1 cursor-default">
                           <h4 className="font-md font-medium text-[var(--color-text-negative)]">
-                            {
-                              FOOD_CATEGORY_LABELS[
-                                name as FoodCategory
-                              ]
-                            }
+                            {FOOD_CATEGORY_LABELS[name as FoodCategory]}
                           </h4>
                           <InfoIcon className="w-4 h-4 text-[var(--color-text-negative)]" />
                         </div>
@@ -323,14 +323,12 @@ const ResultsContent = () => {
 
         {neutralCategories.length > 0 && (
           <article className="mb-4">
-            <h3 className="text-[var(--color-text-neutral-soft)]">
-              Other
-            </h3>
+            <h3 className="text-[var(--color-text-neutral-soft)]">Other</h3>
             <div className="grid gap-4 grid-cols-2 mt-2">
-              {neutralCategories.map(({ logs}, i) => (
+              {neutralCategories.map(({ logs }, i) => (
                 <div key={i} className="flex flex-col gap-1.5">
-                    <div className="flex items-center gap-1.5">
-                      <p className="text-lg font-bold text-[var(--color-text-neutral-soft)]">
+                  <div className="flex items-center gap-1.5">
+                    <p className="text-lg font-bold text-[var(--color-text-neutral-soft)]">
                       {logs.length}
                     </p>
                     <h4 className="font-md font-medium text-[var(--color-text-neutral-soft)]">
@@ -344,7 +342,7 @@ const ResultsContent = () => {
         )}
       </section>
 
-      <section className="max-w-[640px] mx-auto pb-8 grid flex-wrap gap-4 text-gray-950">
+      <section className="max-w-[640px] mx-auto px-6 md:px-0 pb-8 grid flex-wrap gap-4 text-gray-950">
         <h2 className="text-2xl w-full font-serif">Complete breakdown</h2>
 
         {positiveCategories.map((category) => (
@@ -373,14 +371,14 @@ const ResultsContent = () => {
       </section>
 
       <section className="mt-8 pt-12 pb-16 bg-[var(--color-brand-primary-soft)] border-t border-[var(--color-brand-primary-soft-border)]">
-        <div className="max-w-[640px] mx-auto grid gap-4">
+        <div className="max-w-[640px] mx-auto px-6 md:px-0 grid gap-4">
           <header className="grid gap-2 mb-2">
             <h2 className="font-serif text-h2 leading-tight tracking-tight text-[var(--color-text-strong)]">
               Anything else?
             </h2>
             <p className="text-body leading-relaxed text-[var(--color-text-neutral-soft)]">
-              Missing entry or midnight snack, we&apos;re not here to judge.
-              Add it to today&apos;s entry.
+              Missing entry or midnight snack, we&apos;re not here to judge. Add
+              it to today&apos;s entry.
             </p>
           </header>
 

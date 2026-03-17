@@ -22,4 +22,3 @@ export const SpinnerIcon = ({ className }: { className?: string }) => (
     />
   </svg>
 );
-

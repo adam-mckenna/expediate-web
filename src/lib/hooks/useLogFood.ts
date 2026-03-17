@@ -21,9 +21,11 @@ const mergeResults = (
     logs: { ...current.logs },
   };
 
-  (Object.entries(incoming.logs) as Array<
-    [keyof Results["logs"], CategoryLogs | undefined]
-  >).forEach(([key, category]) => {
+  (
+    Object.entries(incoming.logs) as Array<
+      [keyof Results["logs"], CategoryLogs | undefined]
+    >
+  ).forEach(([key, category]) => {
     if (!category) return;
     const existing = merged.logs[key];
     if (!existing) {

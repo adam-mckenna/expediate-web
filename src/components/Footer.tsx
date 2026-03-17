@@ -16,10 +16,7 @@ export const Footer = () => {
 
   return (
     <footer className={containerClasses}>
-      <p className={textClasses}>
-        &copy; Expediate {new Date().getFullYear()}
-      </p>
+      <p className={textClasses}>&copy; Expediate {new Date().getFullYear()}</p>
     </footer>
   );
 };
-

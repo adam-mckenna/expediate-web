@@ -11,4 +11,3 @@ const ResultsLayout = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default ResultsLayout;
-

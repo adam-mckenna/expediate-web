@@ -22,7 +22,8 @@ const toFoodCategory = (value: string): FoodCategory | null => {
 
 export const metadata: Metadata = {
   title: "Category details | Expediate",
-  description: "An exhaustive list of every food item considered a by Expediate.",
+  description:
+    "An exhaustive list of every food item considered a by Expediate.",
 };
 
 const CategoryDetailPage = async ({ params }: CategoryPageProps) => {
@@ -45,8 +46,8 @@ const CategoryDetailPage = async ({ params }: CategoryPageProps) => {
 
   return (
     <main className="text-slate-800">
-      <header className="min-h-62 flex flex-col items-center justify-center gap-1">
-        <h1 className="font-serif text-h1 leading-tight tracking-tight font-normal">
+      <header className="min-h-62 px-5 flex flex-col items-center justify-center gap-2 text-center py-8 md:py-12">
+        <h1 className="font-serif text-3xl sm:text-h1 leading-tight tracking-tight font-normal">
           {title}
         </h1>
         <p className="text-body leading-relaxed text-[oklch(var(--color-text-neutral-soft))]">
@@ -55,8 +56,8 @@ const CategoryDetailPage = async ({ params }: CategoryPageProps) => {
         </p>
       </header>
 
-      <section className="bg-white pb-8 pt-4">
-        <div className="p-4 md:p-8 max-w-4xl mx-auto pb-12 text-[oklch(var(--color-text-neutral-softer))]">
+      <section className="bg-white pb-6 lg:pb-2 lg:pb-12 pt-6">
+        <div className="px-5 md:px-8 md:py-10 max-w-4xl mx-auto pb-14 text-[oklch(var(--color-text-neutral-softer))]">
           <p className="mb-6">{description}</p>
 
           <div className="grid gap-8 md:grid-cols-3">

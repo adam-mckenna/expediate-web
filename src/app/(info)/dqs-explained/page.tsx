@@ -3,13 +3,14 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "DQS explained | Expediate",
-  description: "A plain-language guide to the Diet Quality Score system Expediate uses.",
+  description:
+    "A plain-language guide to the Diet Quality Score system Expediate uses.",
 };
 
 const DQSExplainedPage = () => (
   <main className="text-slate-800">
-    <header className="min-h-62 flex flex-col items-center justify-center gap-1">
-      <h1 className="font-serif text-h1 leading-tight tracking-tight font-normal">
+    <header className="min-h-62 px-5 flex flex-col items-center justify-center gap-2 text-center py-8 md:py-12">
+      <h1 className="font-serif text-3xl sm:text-h1 leading-tight tracking-tight font-normal">
         DQS Explained
       </h1>
       <p className="text-body leading-relaxed text-[oklch(var(--color-text-neutral-soft))]">
@@ -17,8 +18,8 @@ const DQSExplainedPage = () => (
       </p>
     </header>
 
-    <section className="bg-white pb-8 pt-4">
-      <div className="p-4 md:p-8 grid gap-[10px] max-w-2xl mx-auto pb-12 text-[oklch(var(--color-text-neutral-softer))]">
+    <section className="bg-white pb-2 lg:pb-12 pt-6">
+      <div className="px-5 md:px-8 md:py-10 grid gap-4 max-w-2xl mx-auto pb-14 text-[oklch(var(--color-text-neutral-softer))]">
         <h2 className="font-serif text-h2 leading-tight tracking-tight text-slate-800">
           What is DQS?
         </h2>
