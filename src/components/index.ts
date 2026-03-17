@@ -7,5 +7,6 @@ export {
   DownArrowIcon,
   ChevronIcon,
   InfoIcon,
+  ExternalLinkIcon,
 } from "./icons";
 export { ProgressBar } from "./ProgressBar";

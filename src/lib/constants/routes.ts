@@ -4,6 +4,7 @@ export const ROUTES = {
   ABOUT: "/about",
   DQS_EXPLAINED: "/dqs-explained",
   CATEGORIES: "/categories",
+  ARTICLES: "https://tr3.run",
 } as const;
 
 export type Route = (typeof ROUTES)[keyof typeof ROUTES];
