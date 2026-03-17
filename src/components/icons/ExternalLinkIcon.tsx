@@ -17,4 +17,3 @@ export const ExternalLinkIcon = ({ className }: { className?: string }) => (
     />
   </svg>
 );
-

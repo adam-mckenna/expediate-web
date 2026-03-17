@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const DQSExplainedPage = () => (
   <main className="text-slate-800">
     <header className="min-h-40 flex flex-col items-center justify-center gap-1">
@@ -28,7 +30,9 @@ const DQSExplainedPage = () => (
           calories.
         </p>
 
-        <h2 className="font-serif mt-6 text-slate-800">So, how does it work?</h2>
+        <h2 className="font-serif mt-6 text-slate-800">
+          So, how does it work?
+        </h2>
         <p>The DQS system is pretty simple. This is how it works in general:</p>
         <ol className="list-decimal pl-5 space-y-[10px]">
           <li>
@@ -43,12 +47,14 @@ const DQSExplainedPage = () => (
             of these. Those that can&apos;t count as a neutral score (0).
           </li>
           <li>
-            <strong>Assign each item a score based on category and quantity.</strong>{" "}
+            <strong>
+              Assign each item a score based on category and quantity.
+            </strong>{" "}
             Some foods give positive scores, while others negative. There is a
-            scoring matrix that is based on both the category of food you&apos;ve
-            eaten, and the amount. For instance, while eating dairy provides
-            positive scores initially, you will start losing points if you eat
-            too much.
+            scoring matrix that is based on both the category of food
+            you&apos;ve eaten, and the amount. For instance, while eating dairy
+            provides positive scores initially, you will start losing points if
+            you eat too much.
           </li>
         </ol>
         <p>
@@ -68,109 +74,109 @@ const DQSExplainedPage = () => (
           <li>
             <strong>Fruits:</strong> apples, oranges, bananas, strawberries,
             natural juices, etc.&nbsp;
-            <a
+            <Link
               href="/categories/fruits"
               className="text-[#088FC4] underline"
             >
               View the full list.
-            </a>
+            </Link>
           </li>
           <li>
             <strong>Vegetables:</strong> potatoes, broccoli, cabbage, courgette,
             aubergine, onions, bell peppers, tomatoes, legumes, etc.&nbsp;
-            <a
+            <Link
               href="/categories/vegetables"
               className="text-[#088FC4] underline"
             >
               View the full list.
-            </a>
+            </Link>
           </li>
           <li>
-            <strong>Lean meats &amp; fish:</strong> eggs, salmon, mackerel,
-            lean turkey mince, chicken breast, etc.&nbsp;
-            <a
+            <strong>Lean meats &amp; fish:</strong> eggs, salmon, mackerel, lean
+            turkey mince, chicken breast, etc.&nbsp;
+            <Link
               href="/categories/lean-meats-and-fish"
               className="text-[#088FC4] underline"
             >
               View the full list.
-            </a>
+            </Link>
           </li>
           <li>
             <strong>Nuts &amp; seeds:</strong> peanuts, almonds, chia seeds,
             flax, linseed, nut butters, etc.&nbsp;
-            <a
+            <Link
               href="/categories/nuts-and-seeds"
               className="text-[#088FC4] underline"
             >
               View the full list.
-            </a>
+            </Link>
           </li>
           <li>
             <strong>Whole grains:</strong> grains that are unrefined, such as
             brown rice, wholemeal bread, wholegrain pasta, rye crackers, quinoa,
             popcorn, etc.&nbsp;
-            <a
+            <Link
               href="/categories/whole-grains"
               className="text-[#088FC4] underline"
             >
               View the full list.
-            </a>
+            </Link>
           </li>
           <li>
             <strong>Dairy:</strong> natural dairy products, such as cheeses
             (feta, halloumi, cheddar, etc), milk, yoghurt, kefir, cottage
             cheese, etc.&nbsp;
-            <a
-              href="/categories/dairy"
-              className="text-[#088FC4] underline"
-            >
+            <Link href="/categories/dairy" className="text-[#088FC4] underline">
               View the full list.
-            </a>
+            </Link>
           </li>
           <li>
             <strong>Refined grains:</strong> grains that have been refined, such
             as white rice, white bread, white pasta, crackers, etc.&nbsp;
-            <a
+            <Link
               href="/categories/refined-grains"
               className="text-[#088FC4] underline"
             >
               View the full list.
-            </a>
+            </Link>
           </li>
           <li>
             <strong>Sweets:</strong> foods high in sugar, such as ice cream,
             biscuits, cake, chocolate, candies, soft drinks, etc.&nbsp;
-            <a
+            <Link
               href="/categories/sweets"
               className="text-[#088FC4] underline"
             >
               View the full list.
-            </a>
+            </Link>
           </li>
           <li>
             <strong>Fried foods:</strong> foods that have been deep fried, such
             as fried chicken, chips/fries, crisps/chips, tempura, etc.&nbsp;
-            <a
+            <Link
               href="/categories/fried-foods"
               className="text-[#088FC4] underline"
             >
               View the full list.
-            </a>
+            </Link>
           </li>
           <li>
             <strong>Fatty proteins:</strong> proteins that are high in fat, such
             as sausages, chicken thigh, steak, etc.&nbsp;
-            <a
+            <Link
               href="/categories/fatty-proteins"
               className="text-[#088FC4] underline"
             >
               View the full list.
-            </a>
+            </Link>
           </li>
         </ol>
 
         <h2 className="font-serif mt-6 text-slate-800">Serving Sizes</h2>
-        <p>Fitzgerald suggests following &quot;common sense&quot; serving sizes. In his own words:</p>
+        <p>
+          Fitzgerald suggests following &quot;common sense&quot; serving sizes.
+          In his own words:
+        </p>
         <p>
           &quot;With high-quality foods, I believe in using commonsense
           guidelines for serving sizes that are based on the amounts we
@@ -184,7 +190,8 @@ const DQSExplainedPage = () => (
         <p>
           The thing to watch out for is counting too small a portion of a
           high-quality food as a serving. A packet of ketchup does not count as
-          a vegetable serving (and not because it&apos;s technically a fruit)&quot;
+          a vegetable serving (and not because it&apos;s technically a
+          fruit)&quot;
         </p>
         <ol className="list-decimal pl-5 space-y-[10px]">
           <li>
@@ -258,7 +265,9 @@ const DQSExplainedPage = () => (
         <h2 className="font-serif mt-6 text-slate-800">
           What about other foods?
         </h2>
-        <p>There are many foodstuffs not covered by the DQS system, for example:</p>
+        <p>
+          There are many foodstuffs not covered by the DQS system, for example:
+        </p>
         <ol className="list-decimal pl-5 space-y-[10px]">
           <li>
             <strong>Condiments, sauces and spreads:</strong> if used in
@@ -278,8 +287,7 @@ const DQSExplainedPage = () => (
               className="text-[#088FC4] underline"
               target="_blank"
             >
-              coffee in particular is
-              purportedly excellent for gut health
+              coffee in particular is purportedly excellent for gut health
             </a>
             ). If you use sugar or syrups, these count as &quot;sweets&quot;.
           </li>
