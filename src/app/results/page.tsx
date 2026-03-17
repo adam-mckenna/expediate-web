@@ -14,7 +14,7 @@ import {
 } from "@/lib/constants";
 import { getResultsConfig } from "@/lib/utils";
 import { useResults } from "@/lib/hooks";
-import { ProgressBar, ChevronIcon, InfoIcon, Tooltip } from "@/components";
+import { ProgressBar, ChevronIcon, InfoIcon, Tooltip, LogFoodField } from "@/components";
 
 type CategoryBreakdownProps = {
   category: {
@@ -311,6 +311,22 @@ const ResultsContent = () => {
             palette="neutral"
           />
         ))}
+      </section>
+
+      <section className="mt-8 pt-12 pb-16 bg-[#FFF3D9] border-t border-[#F5E2BA]">
+        <div className="max-w-[640px] mx-auto grid gap-4">
+          <header className="grid gap-2 mb-2">
+            <h2 className="font-serif text-[24px] leading-[120%] tracking-[-0.02em] text-[#1E1E1E]">
+              Anything else?
+            </h2>
+            <p className="text-[16px] leading-[140%] text-[#757575]">
+              Missing entry or midnight snack, we&apos;re not here to judge.
+              Add it to today&apos;s entry.
+            </p>
+          </header>
+
+          <LogFoodField mode="append" />
+        </div>
       </section>
     </main>
   );
