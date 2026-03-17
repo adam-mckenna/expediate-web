@@ -1,25 +1,33 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "DQS explained | Expediate",
+  description: "A plain-language guide to the Diet Quality Score system Expediate uses.",
+};
 
 const DQSExplainedPage = () => (
   <main className="text-slate-800">
-    <header className="min-h-40 flex flex-col items-center justify-center gap-1">
-      <h1 className="font-serif text-[42px] leading-[120%] tracking-[-0.02em] font-normal">
+    <header className="min-h-62 flex flex-col items-center justify-center gap-1">
+      <h1 className="font-serif text-h1 leading-tight tracking-tight font-normal">
         DQS Explained
       </h1>
-      <p className="text-[16px] leading-[140%] text-[#757575]">
+      <p className="text-body leading-relaxed text-[oklch(var(--color-text-neutral-soft))]">
         What is DQS, and how does it work?
       </p>
     </header>
 
     <section className="bg-white pb-8 pt-4">
-      <div className="p-4 md:p-8 grid gap-[10px] max-w-2xl mx-auto pb-12 text-[#5A5A5A]">
-        <h2 className="font-serif text-slate-800">What is DQS?</h2>
+      <div className="p-4 md:p-8 grid gap-[10px] max-w-2xl mx-auto pb-12 text-[oklch(var(--color-text-neutral-softer))]">
+        <h2 className="font-serif text-h2 leading-tight tracking-tight text-slate-800">
+          What is DQS?
+        </h2>
         <p>
-          DQS is an acroynm for &quot;Diet Quality Score,&quot; a system created
+          DQS is an acronym for &quot;Diet Quality Score,&quot; a system created
           by{" "}
           <a
             href="https://mattfitzgerald.org/"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
             target="_blank"
           >
             Matt Fitzgerald
@@ -32,7 +40,7 @@ const DQSExplainedPage = () => (
           calories.
         </p>
 
-        <h2 className="font-serif mt-6 text-slate-800">
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
           So, how does it work?
         </h2>
         <p>The DQS system is pretty simple. This is how it works in general:</p>
@@ -63,7 +71,7 @@ const DQSExplainedPage = () => (
           If you want to know more about how it works, you can read{" "}
           <a
             href="https://tr3.run/articles/diet-quality-score-dqs-explained"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
             target="_blank"
           >
             this guide
@@ -71,14 +79,16 @@ const DQSExplainedPage = () => (
           .
         </p>
 
-        <h2 className="font-serif mt-6 text-slate-800">The Categories</h2>
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
+          The Categories
+        </h2>
         <ol className="list-decimal pl-5 space-y-[10px]">
           <li>
             <strong>Fruits:</strong> apples, oranges, bananas, strawberries,
             natural juices, etc.&nbsp;
             <Link
               href="/categories/fruit"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
             >
               View the full list.
             </Link>
@@ -88,7 +98,7 @@ const DQSExplainedPage = () => (
             aubergine, onions, bell peppers, tomatoes, legumes, etc.&nbsp;
             <Link
               href="/categories/vegetables"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
             >
               View the full list.
             </Link>
@@ -98,7 +108,7 @@ const DQSExplainedPage = () => (
             turkey mince, chicken breast, etc.&nbsp;
             <Link
               href="/categories/lean-meat-and-fish"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
             >
               View the full list.
             </Link>
@@ -108,7 +118,7 @@ const DQSExplainedPage = () => (
             flax, linseed, nut butters, etc.&nbsp;
             <Link
               href="/categories/nuts-seeds"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
             >
               View the full list.
             </Link>
@@ -119,7 +129,7 @@ const DQSExplainedPage = () => (
             popcorn, etc.&nbsp;
             <Link
               href="/categories/whole-grains"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
             >
               View the full list.
             </Link>
@@ -128,7 +138,10 @@ const DQSExplainedPage = () => (
             <strong>Dairy:</strong> natural dairy products, such as cheeses
             (feta, halloumi, cheddar, etc), milk, yoghurt, kefir, cottage
             cheese, etc.&nbsp;
-            <Link href="/categories/dairy" className="text-[#088FC4] underline">
+            <Link
+              href="/categories/dairy"
+              className="text-link hover:text-link-hover-alt underline"
+            >
               View the full list.
             </Link>
           </li>
@@ -137,7 +150,7 @@ const DQSExplainedPage = () => (
             as white rice, white bread, white pasta, crackers, etc.&nbsp;
             <Link
               href="/categories/refined-grains"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
             >
               View the full list.
             </Link>
@@ -147,7 +160,7 @@ const DQSExplainedPage = () => (
             biscuits, cake, chocolate, candies, soft drinks, etc.&nbsp;
             <Link
               href="/categories/sweets"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
             >
               View the full list.
             </Link>
@@ -157,7 +170,7 @@ const DQSExplainedPage = () => (
             as fried chicken, chips/fries, crisps/chips, tempura, etc.&nbsp;
             <Link
               href="/categories/fried-foods"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
             >
               View the full list.
             </Link>
@@ -167,14 +180,16 @@ const DQSExplainedPage = () => (
             as sausages, chicken thigh, steak, etc.&nbsp;
             <Link
               href="/categories/fatty-proteins"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
             >
               View the full list.
             </Link>
           </li>
         </ol>
 
-        <h2 className="font-serif mt-6 text-slate-800">Serving Sizes</h2>
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
+          Serving Sizes
+        </h2>
         <p>
           Fitzgerald suggests following &quot;common sense&quot; serving sizes.
           In his own words:
@@ -242,7 +257,9 @@ const DQSExplainedPage = () => (
           </li>
         </ol>
 
-        <h2 className="font-serif mt-6 text-slate-800">Combination foods</h2>
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
+          Combination foods
+        </h2>
         <p>
           Some foods are made up of two or more of these categories. Pepperoni
           pizza, for instance, is comprised of (at least): fatty protein, dairy
@@ -254,7 +271,9 @@ const DQSExplainedPage = () => (
           Expediate in the same way.
         </p>
 
-        <h2 className="font-serif mt-6 text-slate-800">Scoring</h2>
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
+          Scoring
+        </h2>
         <p>
           Once you have figured out what the portions you have consumed are, you
           can use this matrix to score your day.
@@ -264,7 +283,7 @@ const DQSExplainedPage = () => (
           this matrix. We&apos;ll calculate your score for you.
         </p>
 
-        <h2 className="font-serif mt-6 text-slate-800">
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
           What about other foods?
         </h2>
         <p>
@@ -286,7 +305,7 @@ const DQSExplainedPage = () => (
             negative score associated with it (and&nbsp;
             <a
               href="https://zoe.com/learn/coffee-gut-bacteria-zoe-study?srsltid=AfmBOoqv5l2Nb0LbTVE7DFskp7mny_zQ9ff-YRugWARbjLVpqpkcmiC3"
-              className="text-[#088FC4] underline"
+              className="text-link hover:text-link-hover-alt underline"
               target="_blank"
             >
               coffee in particular is purportedly excellent for gut health
@@ -303,7 +322,9 @@ const DQSExplainedPage = () => (
           </li>
         </ol>
 
-        <h2 className="font-serif mt-6 text-slate-800">FAQs</h2>
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
+          FAQs
+        </h2>
         <p>
           <strong>What about fats, such as olive oil or butter?</strong>
         </p>
@@ -312,7 +333,7 @@ const DQSExplainedPage = () => (
           positive or negative.&nbsp;
           <a
             href="https://www.trainingpeaks.com/blog/fat-and-the-endurance-athlete/"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
             target="_blank"
           >
             Fitzgerald doesn&apos;t believe they&apos;re harmful.
@@ -336,7 +357,7 @@ const DQSExplainedPage = () => (
           particularly interested in, please let us know via this{" "}
           <a
             href="https://forms.gle/mpg6tVbePJkPQQQ18"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
           >
             Google Form
           </a>

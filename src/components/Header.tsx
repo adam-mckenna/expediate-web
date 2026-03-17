@@ -6,17 +6,18 @@ export const Header = () => {
   return (
     <header className="bg-white p-6 flex justify-between items-center">
       <Link
-        className="font-serif text-[#1E1E1E] text-xl mb-[1px] transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
+        className="font-serif text-text-strong text-xl mb-[1px] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 rounded active:scale-95"
         href={ROUTES.HOME}
       >
-        Expedi<span className="text-[#BF6A02]/60">ate</span>
+        Expedi
+        <span className="text-brand-primary/60">ate</span>
       </Link>
 
       <nav>
         <ul className="flex gap-6">
           <li>
             <Link
-              className="text-[#1E1E1E] font-bold transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
+              className="text-text-strong font-bold transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 rounded active:scale-95"
               href={ROUTES.HOME}
             >
               Log Food
@@ -24,7 +25,7 @@ export const Header = () => {
           </li>
           <li>
             <Link
-              className="text-[#1E1E1E] transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
+              className="text-text-strong transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 rounded active:scale-95"
               href={ROUTES.ABOUT}
             >
               About
@@ -32,7 +33,7 @@ export const Header = () => {
           </li>
           <li>
             <Link
-              className="text-[#1E1E1E] transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
+              className="text-text-strong transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 rounded active:scale-95"
               href={ROUTES.DQS_EXPLAINED}
             >
               DQS Explained
@@ -40,7 +41,7 @@ export const Header = () => {
           </li>
           <li>
             <Link
-              className="text-[#1E1E1E] inline-flex items-center gap-2 transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
+              className="text-text-strong inline-flex items-center gap-2 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 rounded active:scale-95"
               href={ROUTES.ARTICLES}
               target="_blank"
             >

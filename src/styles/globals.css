@@ -1,20 +1,90 @@
 @import "tailwindcss";
 
 :root {
-  --foreground: #171717;
+  --foreground: var(--color-foreground-main);
 }
 
 @theme inline {
+  /* Base foreground/background */
   --color-background: var(--color-orange-50);
-  --color-foreground: var(--foreground);
+  --color-foreground-main: #171717;
+  --color-background-dark: #0a0a0a;
+  --color-foreground-dark: #ededed;
+
+  /* Gradients */
+  --color-green-gradient-from: #34c759;
+  --color-green-gradient-to: #14ae5c;
+  --color-gray-gradient-from: #757575;
+  --color-gray-gradient-to: #5a5a5a;
+  --color-red-gradient-from: #ef4444;
+  --color-red-gradient-to: #dc2626;
+
+  /* Focus ring */
+  --color-focus-ring: #193c3e;
+
+  /* Brand / accents */
+  --color-brand-primary: #bf6a02;
+  --color-brand-primary-soft: #fff3d9;
+  --color-brand-primary-soft-border: #f5e2ba;
+
+  /* Text neutrals */
+  --color-text-neutral-soft: #757575;
+  --color-text-neutral-softer: #5a5a5a;
+  --color-text-strong: #1e1e1e;
+
+  /* Surfaces */
+  --color-surface-positive: #ebffee;
+  --color-surface-positive-border: #02542d;
+  --color-surface-negative: #fee9e7;
+  --color-surface-negative-border: #900b09;
+  --color-surface-neutral: #f5f5f5;
+  --color-surface-neutral-border: #757575;
+
+  /* Footer */
+  --color-footer-background: #F0F0F0;
+  --color-footer-border: #D9D9D9;
+  --color-footer-text: #767676;
+
+  /* Inputs */
+  --color-input-border: #c3c3c3;
+
+  /* Score text */
+  --color-score-positive: #14ae5c;
+  --color-score-negative: #c00f0c;
+
+  /* Positive / negative text */
+  --color-text-positive: #02542d;
+  --color-text-positive-hover: #01402a;
+  --color-text-negative: #900b09;
+  --color-text-negative-hover: #7a0604;
+  --color-text-neutral-hover: #606060;
+
+  /* Tooltip */
+  --color-tooltip-bg: #3e3e3e;
+
+  /* Links */
+  --color-link: #088fc4;
+  --color-link-hover-alt: #066f97;
+
+  /* Fonts */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-bree-serif), ui-serif, Georgia, serif;
+
+  /* Typography scale */
+  --text-h1: 42px;
+  --text-h2: 24px;
+  --text-body: 16px;
+
+  --leading-tight: 120%;
+  --leading-relaxed: 140%;
+
+  --tracking-tight: -0.02em;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-background-dark);
+    --foreground: var(--color-foreground-dark);
   }
 }
 
@@ -25,30 +95,38 @@ body {
 }
 
 .green-gradient {
-  background: linear-gradient(to bottom, #34c759, #14ae5c);
+  background: linear-gradient(
+    to bottom,
+    var(--color-green-gradient-from),
+    var(--color-green-gradient-to)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gray-gradient {
-  background: linear-gradient(to bottom, #757575, #5a5a5a);
+  background: linear-gradient(
+    to bottom,
+    var(--color-gray-gradient-from),
+    var(--color-gray-gradient-to)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .red-gradient {
-  background: linear-gradient(to bottom, #ef4444, #dc2626);
+  background: linear-gradient(
+    to bottom,
+    var(--color-red-gradient-from),
+    var(--color-red-gradient-to)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-h2 {
-  @apply text-[24px] leading-[120%] tracking-[-0.02em];
-}
-
 a {
-  @apply transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95;
+  @apply transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 rounded active:scale-95;
 }

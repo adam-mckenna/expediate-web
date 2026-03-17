@@ -35,14 +35,26 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
 
   return (
     <article
-      className={`grid grid-cols-24 ${palette === "positive" ? "bg-[#EBFFEE] border-l-2 border-[#02542D]" : palette === "negative" ? "bg-[#FEE9E7] border-l-2 border-[#900B09]" : "bg-[#F5F5F5] border-l-2 border-[#757575]"} p-6 pt-5 pb-8`}
+      className={`grid grid-cols-24 ${
+        palette === "positive"
+          ? "bg-emerald-50 border-l-2 border-emerald-800"
+          : palette === "negative"
+            ? "bg-red-50 border-l-2 border-red-800"
+            : "bg-neutral-100 border-l-2 border-neutral-500"
+      } p-6 pt-5 pb-8`}
     >
       <aside className="col-span-3">
         <p className="sr-only">
           Your score for {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
         </p>
         <p
-          className={`text-3xl font-bold ${palette === "positive" ? "text-[#14AE5C]" : palette === "negative" ? "text-[#C00F0C]" : "text-[#757575]"}`}
+          className={`text-3xl font-bold ${
+            palette === "positive"
+              ? "text-emerald-600"
+              : palette === "negative"
+                ? "text-red-600"
+                : "text-neutral-600"
+          }`}
         >
           {palette === "positive" && "+"}
           {category.score}
@@ -51,12 +63,24 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
 
       <div className="col-span-21">
         <h3
-          className={`text-xl ${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"} font-serif mb-1.5`}
+          className={`text-xl ${
+            palette === "positive"
+              ? "text-emerald-900"
+              : palette === "negative"
+                ? "text-red-900"
+                : "text-neutral-700"
+          } font-serif mb-1.5`}
         >
           {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
         </h3>
         <p
-          className={`${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"} mb-4`}
+          className={`${
+            palette === "positive"
+              ? "text-emerald-900"
+              : palette === "negative"
+                ? "text-red-900"
+                : "text-neutral-700"
+          } mb-4`}
         >
           {FOOD_CATEGORY_DESCRIPTIONS[category.name as FoodCategory]}
         </p>
@@ -69,11 +93,23 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
           {category.logs.map((log, index) => (
             <div
               key={index}
-              className={`flex flex-wrap gap-3 ${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"}`}
+              className={`flex flex-wrap gap-3 ${
+                palette === "positive"
+                  ? "text-emerald-900"
+                  : palette === "negative"
+                    ? "text-red-900"
+                    : "text-neutral-700"
+              }`}
             >
               {palette !== "neutral" && (
                 <span
-                  className={`font-bold ${palette === "positive" ? "text-[#14AE5C]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"}`}
+                  className={`font-bold ${
+                    palette === "positive"
+                      ? "text-emerald-600"
+                      : palette === "negative"
+                        ? "text-red-600"
+                        : "text-neutral-600"
+                  }`}
                 >
                   {palette === "positive" && "+"}
                   {log.score}
@@ -92,7 +128,13 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
         <div className="flex justify-end gap-4">
           <Link
             href={`${ROUTES.DQS_EXPLAINED}#${category.name}`}
-            className={`flex items-center p-2 gap-1.5 ${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"} ${palette === "positive" ? "hover:text-[#01402a]" : palette === "negative" ? "hover:text-[#7a0604]" : "hover:text-[#606060]"} transition-all focus:outline-none focus:ring-2 focus:ring-[#02542D] focus:ring-offset-2 rounded`}
+            className={`flex items-center p-2 gap-1.5 ${
+              palette === "positive"
+                ? "text-emerald-900 hover:text-emerald-700 focus:text-emerald-700 focus:ring-emerald-700"
+                : palette === "negative"
+                  ? "text-red-900 hover:text-red-700 focus:text-red-700 focus:ring-red-700"
+                  : "text-neutral-700 hover:text-neutral-600 focus:text-neutral-600 focus:ring-neutral-600"
+            } transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 rounded`}
             aria-label={`Learn more about ${FOOD_CATEGORY_LABELS[category.name as FoodCategory]}`}
           >
             <span>Learn more</span>
@@ -101,7 +143,13 @@ const CategoryBreakdown = ({ category, palette }: CategoryBreakdownProps) => {
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className={`flex items-center p-2 gap-1.5 cursor-pointer ${palette === "positive" ? "text-[#02542D]" : palette === "negative" ? "text-[#900B09]" : "text-[#757575]"} ${palette === "positive" ? "hover:text-[#01402a]" : palette === "negative" ? "hover:text-[#7a0604]" : "hover:text-[#606060]"} transition-all focus:outline-none focus:ring-2 focus:ring-[#02542D] focus:ring-offset-2 rounded`}
+            className={`flex items-center p-2 gap-1.5 cursor-pointer ${
+              palette === "positive"
+                ? "text-emerald-900 hover:text-emerald-700 focus:text-emerald-700 focus:ring-emerald-700"
+                : palette === "negative"
+                  ? "text-red-900 hover:text-red-700 focus:text-red-700 focus:ring-red-700"
+                  : "text-neutral-700 hover:text-neutral-600 focus:text-neutral-600 focus:ring-neutral-600"
+            } transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 rounded`}
             aria-label={isExpanded ? "Hide breakdown" : "Show breakdown"}
             aria-expanded={isExpanded}
           >
@@ -152,7 +200,9 @@ const ResultsContent = () => {
       <header className={`w-full mb-2 ${backgroundColor} py-20`}>
         <div className="max-w-[640px] mx-auto grid gap-8 grid-cols-14 items-start">
           <div className="col-span-3">
-            <p className="font-serif text-sm text-[#757575]">Your score</p>
+            <p className="font-serif text-md text-[var(--color-text-neutral-soft)]">
+              Your score
+            </p>
             <div className="flex items-start">
               <span className={`${gradientClass || ""} text-8xl font-bold`}>
                 {results.totalScore}
@@ -172,7 +222,9 @@ const ResultsContent = () => {
               {title}
             </h2>
 
-            <p className="text-[#757575]">{description}</p>
+            <p className="text-[var(--color-text-neutral-soft)]">
+              {description}
+            </p>
           </div>
         </div>
       </header>
@@ -182,7 +234,9 @@ const ResultsContent = () => {
 
         {positiveCategories.length > 0 && (
           <article className="mb-4">
-            <h3 className="text-[#757575]">Positive scores</h3>
+            <h3 className="text-[var(--color-text-neutral-soft)]">
+              Positive scores
+            </h3>
 
             <div className="grid gap-4 grid-cols-2 mt-2">
               {positiveCategories.map((category, i) => {
@@ -190,7 +244,7 @@ const ResultsContent = () => {
                 return (
                   <div key={i} className="flex flex-col gap-1.5">
                     <div className="flex items-center gap-1.5">
-                      <p className="text-lg font-bold text-[#02542D]">
+                      <p className="text-lg font-bold text-[var(--color-text-positive)]">
                         +{category.score}
                       </p>
                       <Tooltip
@@ -201,14 +255,14 @@ const ResultsContent = () => {
                         }
                       >
                         <div className="flex items-center gap-1 cursor-default">
-                          <h4 className="font-md font-medium text-[#02542D]">
+                          <h4 className="font-md font-medium text-[var(--color-text-positive)]">
                             {
                               FOOD_CATEGORY_LABELS[
                                 category.name as FoodCategory
                               ]
                             }
                           </h4>
-                          <InfoIcon className="w-4 h-4 text-[#02542D]" />
+                          <InfoIcon className="w-4 h-4 text-[var(--color-text-positive)]" />
                         </div>
                       </Tooltip>
                     </div>
@@ -222,33 +276,36 @@ const ResultsContent = () => {
 
         {negativeCategories.length > 0 && (
           <article className="mb-4">
-            <h3 className="text-[#757575]">Negative scores</h3>
+            <h3 className="text-[var(--color-text-neutral-soft)]">
+              Negative scores
+            </h3>
             <div className="grid gap-4 grid-cols-2 mt-2">
-              {negativeCategories.map((category, i) => {
-                const maxScore = getCategoryNegativeMaxScore(category.name);
-                const absoluteScore = Math.abs(category.score);
+              {negativeCategories.map(({ name, score }, i) => {
+                const maxScore = getCategoryNegativeMaxScore(name);
+                const absoluteScore = Math.abs(score);
+
                 return (
                   <div key={i} className="flex flex-col gap-1.5">
                     <div className="flex items-center gap-1.5">
-                      <p className="text-lg font-bold text-[#C00F0C]">
-                        {category.score}
+                      <p className="text-lg font-bold text-[var(--color-score-negative)]">
+                        {score}
                       </p>
                       <Tooltip
                         content={
                           FOOD_CATEGORY_DESCRIPTIONS[
-                            category.name as FoodCategory
+                            name as FoodCategory
                           ]
                         }
                       >
                         <div className="flex items-center gap-1 cursor-default">
-                          <h4 className="font-md font-medium text-[#900B09]">
+                          <h4 className="font-md font-medium text-[var(--color-text-negative)]">
                             {
                               FOOD_CATEGORY_LABELS[
-                                category.name as FoodCategory
+                                name as FoodCategory
                               ]
                             }
                           </h4>
-                          <InfoIcon className="w-4 h-4 text-[#900B09]" />
+                          <InfoIcon className="w-4 h-4 text-[var(--color-text-negative)]" />
                         </div>
                       </Tooltip>
                     </div>
@@ -266,15 +323,17 @@ const ResultsContent = () => {
 
         {neutralCategories.length > 0 && (
           <article className="mb-4">
-            <h3 className="text-[#757575]">Other</h3>
+            <h3 className="text-[var(--color-text-neutral-soft)]">
+              Other
+            </h3>
             <div className="grid gap-4 grid-cols-2 mt-2">
-              {neutralCategories.map((category, i) => (
+              {neutralCategories.map(({ logs}, i) => (
                 <div key={i} className="flex flex-col gap-1.5">
-                  <div className="flex items-center gap-1.5">
-                    <p className="text-lg font-bold text-[#757575]">
-                      {category.logs.length}
+                    <div className="flex items-center gap-1.5">
+                      <p className="text-lg font-bold text-[var(--color-text-neutral-soft)]">
+                      {logs.length}
                     </p>
-                    <h4 className="font-md font-medium text-[#757575]">
+                    <h4 className="font-md font-medium text-[var(--color-text-neutral-soft)]">
                       unknown items logged
                     </h4>
                   </div>
@@ -313,13 +372,13 @@ const ResultsContent = () => {
         ))}
       </section>
 
-      <section className="mt-8 pt-12 pb-16 bg-[#FFF3D9] border-t border-[#F5E2BA]">
+      <section className="mt-8 pt-12 pb-16 bg-[var(--color-brand-primary-soft)] border-t border-[var(--color-brand-primary-soft-border)]">
         <div className="max-w-[640px] mx-auto grid gap-4">
           <header className="grid gap-2 mb-2">
-            <h2 className="font-serif text-[24px] leading-[120%] tracking-[-0.02em] text-[#1E1E1E]">
+            <h2 className="font-serif text-h2 leading-tight tracking-tight text-[var(--color-text-strong)]">
               Anything else?
             </h2>
-            <p className="text-[16px] leading-[140%] text-[#757575]">
+            <p className="text-body leading-relaxed text-[var(--color-text-neutral-soft)]">
               Missing entry or midnight snack, we&apos;re not here to judge.
               Add it to today&apos;s entry.
             </p>

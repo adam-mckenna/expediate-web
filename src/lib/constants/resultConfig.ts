@@ -4,7 +4,7 @@ import type { ResultsType, ResultsConfig } from "@/lib/types/resultsConfig";
 export const RESULTS_CONFIGS: Record<ResultsType, ResultsConfig> = {
   good: {
     type: "good",
-    backgroundColor: "bg-[#006931]/12",
+    backgroundColor: "bg-emerald-900/10",
     textColor: "text-slate-900",
     title: "Nice, you smashed it today.",
     description:
@@ -16,7 +16,7 @@ export const RESULTS_CONFIGS: Record<ResultsType, ResultsConfig> = {
   },
   neutral: {
     type: "neutral",
-    backgroundColor: "bg-[#757575]/12",
+    backgroundColor: "bg-neutral-600/10",
     textColor: "text-slate-900",
     title: "Not bad, but could be better.",
     description:

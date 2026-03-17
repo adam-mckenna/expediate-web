@@ -1,19 +1,25 @@
+import type { Metadata } from "next";
 import { ROUTES } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "About Expediate | Expediate",
+  description: "Learn what Expediate is, why it was built, and who created it.",
+};
 
 const AboutPage = () => (
   <main className="text-slate-800">
     <header className="min-h-62 flex flex-col items-center justify-center gap-1">
-      <h1 className="font-serif text-[42px] leading-[120%] tracking-[-0.02em] font-normal">
+      <h1 className="font-serif text-h1 leading-tight tracking-tight font-normal">
         About Expediate
       </h1>
-      <p className="text-[16px] leading-[140%] text-[#757575]">
+      <p className="text-body leading-relaxed text-[oklch(var(--color-text-neutral-soft))]">
         What is Expediate, who made it, and why?
       </p>
     </header>
 
     <section className="bg-white pb-8 pt-4">
-      <div className="p-4 md:p-8 grid gap-[10px] max-w-2xl mx-auto pb-12 text-[#5A5A5A]">
-        <h2 className="font-serif text-xl text-slate-800">
+      <div className="p-4 md:p-8 grid gap-[10px] max-w-2xl mx-auto pb-12 text-[oklch(var(--color-text-neutral-softer))]">
+        <h2 className="font-serif text-h2 leading-tight tracking-tight text-slate-800">
           What is Expediate?
         </h2>
         <p>Hey there! Welcome to Expediate 👋</p>
@@ -23,21 +29,21 @@ const AboutPage = () => (
           <a
             href="https://tr3.run/articles/diet-quality-score-dqs-explained"
             target="_blank"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
           >
             DQS model
           </a>{" "}
           created by&nbsp;
           <a
             href="https://mattfitzgerald.org/"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
           >
             Matt Fitzgerald
           </a>
           .
         </p>
 
-        <h2 className="font-serif text-xl mt-6 text-slate-800">
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
           How to use Expediate
         </h2>
         <p>
@@ -49,7 +55,7 @@ const AboutPage = () => (
           give&nbsp;
           <a
             href="https://tr3.run/articles/diet-quality-score-dqs-explained"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
           >
             this guide
           </a>
@@ -57,7 +63,10 @@ const AboutPage = () => (
         </p>
         <p>
           Once you’ve understood how the DQS model works, go to the&nbsp;
-          <a href={ROUTES.HOME} className="text-[#088FC4] underline">
+          <a
+            href={ROUTES.HOME}
+            className="text-link hover:text-link-hover-alt underline"
+          >
             Log Food
           </a>
           &nbsp; screen. In the text field, add your food as a comma separated
@@ -78,7 +87,7 @@ const AboutPage = () => (
           me know about it via the feedback form below.
         </p>
 
-        <h2 className="font-serif text-xl mt-6 text-slate-800">
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
           About the developer
         </h2>
         <p>
@@ -86,7 +95,7 @@ const AboutPage = () => (
           <a
             href="https://adammckenna.online"
             target="_blank"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
           >
             Adam
           </a>
@@ -95,7 +104,7 @@ const AboutPage = () => (
           <a
             href={ROUTES.ARTICLES}
             target="_blank"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
           >
             tr3
           </a>
@@ -109,20 +118,22 @@ const AboutPage = () => (
           <a
             href={ROUTES.ARTICLES}
             target="_blank"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
           >
             here
           </a>
           .
         </p>
 
-        <h2 className="font-serif text-xl mt-6 text-slate-800">Feedback</h2>
+        <h2 className="font-serif text-h2 leading-tight tracking-tight mt-6 text-slate-800">
+          Feedback
+        </h2>
         <p>
           If you’re using this app and you have feedback, good or bad, I’d love
           to hear it. You can give feedback via this&nbsp;
           <a
             href="https://forms.gle/mpg6tVbePJkPQQQ18"
-            className="text-[#088FC4] underline"
+            className="text-link hover:text-link-hover-alt underline"
           >
             Google Form
           </a>

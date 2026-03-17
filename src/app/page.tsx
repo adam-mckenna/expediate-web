@@ -1,6 +1,10 @@
-"use client";
-
+import type { Metadata } from "next";
 import { LogFoodField } from "@/components";
+
+export const metadata: Metadata = {
+  title: "Log today’s food | Expediate",
+  description: "Quickly log what you ate today and get an instant Diet Quality Score.",
+};
 
 const Home = () => {
   return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   FOOD_CATEGORIES,
@@ -17,6 +18,11 @@ const toFoodCategory = (value: string): FoodCategory | null => {
   return FOOD_CATEGORIES.includes(value as FoodCategory)
     ? (value as FoodCategory)
     : null;
+};
+
+export const metadata: Metadata = {
+  title: "Category details | Expediate",
+  description: "An exhaustive list of every food item considered a by Expediate.",
 };
 
 const CategoryDetailPage = async ({ params }: CategoryPageProps) => {
@@ -40,17 +46,17 @@ const CategoryDetailPage = async ({ params }: CategoryPageProps) => {
   return (
     <main className="text-slate-800">
       <header className="min-h-62 flex flex-col items-center justify-center gap-1">
-        <h1 className="font-serif text-[42px] leading-[120%] tracking-[-0.02em] font-normal">
+        <h1 className="font-serif text-h1 leading-tight tracking-tight font-normal">
           {title}
         </h1>
-        <p className="text-[16px] leading-[140%] text-[#757575]">
+        <p className="text-body leading-relaxed text-[oklch(var(--color-text-neutral-soft))]">
           An exhaustive list of every food item considered a &quot;
           {title.toLowerCase()}&quot; by Expediate.
         </p>
       </header>
 
       <section className="bg-white pb-8 pt-4">
-        <div className="p-4 md:p-8 max-w-4xl mx-auto pb-12 text-[#5A5A5A]">
+        <div className="p-4 md:p-8 max-w-4xl mx-auto pb-12 text-[oklch(var(--color-text-neutral-softer))]">
           <p className="mb-6">{description}</p>
 
           <div className="grid gap-8 md:grid-cols-3">

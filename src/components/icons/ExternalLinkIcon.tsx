@@ -11,7 +11,7 @@ export const ExternalLinkIcon = ({ className }: { className?: string }) => (
     <path
       opacity="0.75"
       d="M0.5 5.5L5.38275 0.5M5.38275 0.5H0.5M5.38275 0.5V5.5"
-      stroke="#1E1E1E"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
     />

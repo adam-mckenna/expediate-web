@@ -13,3 +13,4 @@ export {
   ExternalLinkIcon,
 } from "./icons";
 export { ProgressBar } from "./ProgressBar";
+export { Footer } from "./Footer";

@@ -19,11 +19,12 @@ export const ProgressBar = ({
     variant === "negative"
       ? {
           width: `${percentage}%`,
-          background: "linear-gradient(to right, #C00F0C, #EC221F)",
+          background:
+            "linear-gradient(to right, var(--color-red-gradient-from), var(--color-red-gradient-to))",
         }
       : {
           width: `${percentage}%`,
-          background: "#14AE5C",
+          background: "linear-gradient(to right, var(--color-green-gradient-from), var(--color-green-gradient-to))",
         };
 
   return (
