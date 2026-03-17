@@ -1,74 +1,336 @@
 const DQSExplainedPage = () => (
   <main className="text-slate-800">
-    <header className="min-h-40 flex items-center justify-center">
-      <h1 className="font-medium text-xl">DQS Explained</h1>
+    <header className="min-h-40 flex flex-col items-center justify-center gap-1">
+      <h1 className="font-serif">DQS Explained</h1>
+      <p className="text-[16px] leading-[140%] text-[#757575]">
+        What is DQS, and how does it work?
+      </p>
     </header>
 
-    <section className="bg-white">
-      <div className="p-4 grid gap-2  max-w-lg mx-auto pb-8">
-        <h2 className="font-serif mt-4">Some title</h2>
+    <section className="bg-white pb-8 pt-4">
+      <div className="p-4 md:p-8 grid gap-[10px] max-w-2xl mx-auto pb-12 text-[#5A5A5A]">
+        <h2 className="font-serif text-slate-800">What is DQS?</h2>
         <p>
-          Irure ad nisi est laboris in ad consectetur veniam nostrud. Laboris eu
-          incididunt adipisicing aute ullamco anim. Pariatur in nisi voluptate
-          laboris ex laborum mollit aliquip ut. Laborum duis aliquip ipsum irure
-          velit do Lorem duis exercitation tempor aliqua aliqua Lorem. Pariatur
-          occaecat deserunt aute dolore sunt sit mollit elit fugiat voluptate.
-          Voluptate nulla ea proident veniam.
+          DQS is an acroynm for &quot;Diet Quality Score,&quot; a system created
+          by{" "}
+          <a
+            href="https://mattfitzgerald.org/"
+            className="text-[#088FC4] underline"
+            target="_blank"
+          >
+            Matt Fitzgerald
+          </a>{" "}
+          for athletes to easily track their nutrition.
         </p>
         <p>
-          Cupidatat nulla do adipisicing ipsum elit do ullamco aliqua nulla ea
-          incididunt ad eiusmod id. Aliqua aliquip aliquip aliqua minim duis
-          minim et velit duis. Exercitation tempor exercitation nisi cillum
-          irure amet. Cillum excepteur excepteur esse laboris nulla cillum quis.
-        </p>
-        <p>
-          Eu reprehenderit incididunt eu do non ex tempor voluptate dolor
-          ullamco Lorem enim fugiat. Pariatur enim non sint duis mollit occaecat
-          cillum qui. Velit officia fugiat non in. Aliquip cupidatat nisi culpa
-          non aliqua laboris eiusmod officia Lorem.
-        </p>
-        <p>
-          Mollit reprehenderit sint tempor aute dolore reprehenderit ea
-          reprehenderit nulla. Consequat nostrud officia consectetur mollit
-          irure duis. Est ullamco voluptate quis reprehenderit aute non ad
-          veniam ea amet aliqua magna. Cillum consectetur elit ea pariatur non
-          do reprehenderit cupidatat adipisicing amet excepteur eiusmod ex. Enim
-          sit in minim quis cillum qui ad dolor ullamco et. Duis nostrud dolor
-          aliqua adipisicing reprehenderit. Laborum nostrud eiusmod sunt non ex
-          sunt voluptate exercitation nisi incididunt.
+          It is a useful middle ground for those who want to gauge the quality
+          of their diet, but don&apos;t have the time or energy to rigidly count
+          calories.
         </p>
 
-        <h2 className="font-serif mt-4">Some title</h2>
+        <h2 className="font-serif mt-6 text-slate-800">So, how does it work?</h2>
+        <p>The DQS system is pretty simple. This is how it works in general:</p>
+        <ol className="list-decimal pl-5 space-y-[10px]">
+          <li>
+            <strong>Keep track of your food intake.</strong> Keep a simple list
+            of everything you ate throughout the day, and a rough quantity. For
+            example: &quot;50g oats, 200ml milk, a handful of chia seeds, 1
+            banana...&quot; and so on.
+          </li>
+          <li>
+            <strong>Assign each item a category.</strong> There are 10
+            categories in the DQS system, and most foods can be assigned to one
+            of these. Those that can&apos;t count as a neutral score (0).
+          </li>
+          <li>
+            <strong>Assign each item a score based on category and quantity.</strong>{" "}
+            Some foods give positive scores, while others negative. There is a
+            scoring matrix that is based on both the category of food you&apos;ve
+            eaten, and the amount. For instance, while eating dairy provides
+            positive scores initially, you will start losing points if you eat
+            too much.
+          </li>
+        </ol>
         <p>
-          Eu ex cupidatat do consequat dolor nostrud cupidatat. Eiusmod nostrud
-          proident adipisicing magna nisi consequat irure reprehenderit quis
-          laboris. Ea est ex eu esse est minim esse ullamco sit sunt occaecat ex
-          id ut. Officia aliqua culpa ad ea eiusmod pariatur dolor eiusmod esse.
-          Laborum ad proident ut aliqua et voluptate mollit ea labore. Veniam
-          proident dolor labore consectetur excepteur tempor ut cillum fugiat
-          proident tempor sint.
+          If you want to know more about how it works, you can read{" "}
+          <a
+            href="https://tr3.run/articles/diet-quality-score-dqs-explained"
+            className="text-[#088FC4] underline"
+            target="_blank"
+          >
+            this guide
+          </a>
+          .
+        </p>
+
+        <h2 className="font-serif mt-6 text-slate-800">The Categories</h2>
+        <ol className="list-decimal pl-5 space-y-[10px]">
+          <li>
+            <strong>Fruits:</strong> apples, oranges, bananas, strawberries,
+            natural juices, etc.&nbsp;
+            <a
+              href="/categories/fruits"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+          <li>
+            <strong>Vegetables:</strong> potatoes, broccoli, cabbage, courgette,
+            aubergine, onions, bell peppers, tomatoes, legumes, etc.&nbsp;
+            <a
+              href="/categories/vegetables"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+          <li>
+            <strong>Lean meats &amp; fish:</strong> eggs, salmon, mackerel,
+            lean turkey mince, chicken breast, etc.&nbsp;
+            <a
+              href="/categories/lean-meats-and-fish"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+          <li>
+            <strong>Nuts &amp; seeds:</strong> peanuts, almonds, chia seeds,
+            flax, linseed, nut butters, etc.&nbsp;
+            <a
+              href="/categories/nuts-and-seeds"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+          <li>
+            <strong>Whole grains:</strong> grains that are unrefined, such as
+            brown rice, wholemeal bread, wholegrain pasta, rye crackers, quinoa,
+            popcorn, etc.&nbsp;
+            <a
+              href="/categories/whole-grains"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+          <li>
+            <strong>Dairy:</strong> natural dairy products, such as cheeses
+            (feta, halloumi, cheddar, etc), milk, yoghurt, kefir, cottage
+            cheese, etc.&nbsp;
+            <a
+              href="/categories/dairy"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+          <li>
+            <strong>Refined grains:</strong> grains that have been refined, such
+            as white rice, white bread, white pasta, crackers, etc.&nbsp;
+            <a
+              href="/categories/refined-grains"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+          <li>
+            <strong>Sweets:</strong> foods high in sugar, such as ice cream,
+            biscuits, cake, chocolate, candies, soft drinks, etc.&nbsp;
+            <a
+              href="/categories/sweets"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+          <li>
+            <strong>Fried foods:</strong> foods that have been deep fried, such
+            as fried chicken, chips/fries, crisps/chips, tempura, etc.&nbsp;
+            <a
+              href="/categories/fried-foods"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+          <li>
+            <strong>Fatty proteins:</strong> proteins that are high in fat, such
+            as sausages, chicken thigh, steak, etc.&nbsp;
+            <a
+              href="/categories/fatty-proteins"
+              className="text-[#088FC4] underline"
+            >
+              View the full list.
+            </a>
+          </li>
+        </ol>
+
+        <h2 className="font-serif mt-6 text-slate-800">Serving Sizes</h2>
+        <p>Fitzgerald suggests following &quot;common sense&quot; serving sizes. In his own words:</p>
+        <p>
+          &quot;With high-quality foods, I believe in using commonsense
+          guidelines for serving sizes that are based on the amounts we
+          typically eat.
         </p>
         <p>
-          Qui eiusmod cupidatat aute reprehenderit labore qui deserunt Lorem sit
-          proident consectetur eu. Culpa anim eiusmod veniam quis fugiat do enim
-          voluptate reprehenderit quis. Mollit do consectetur elit irure
-          deserunt irure irure eu commodo ad in voluptate. Ea culpa cillum
-          dolore occaecat et esse. Duis incididunt non aliquip sit adipisicing
-          eu est do cillum deserunt in. Aliquip irure duis mollit sit
-          reprehenderit incididunt reprehenderit. Anim aliqua veniam est esse
-          nisi non qui Lorem in ad non nisi fugiat.
+          While it is often said that we tend to eat excessively large portions
+          these days, this is typically not the case with high-quality foods
+          such as vegetables and whole grains.
         </p>
         <p>
-          Ullamco cupidatat irure esse nisi. Lorem deserunt magna nulla
-          adipisicing voluptate. Consequat et aliquip officia nostrud.
+          The thing to watch out for is counting too small a portion of a
+          high-quality food as a serving. A packet of ketchup does not count as
+          a vegetable serving (and not because it&apos;s technically a fruit)&quot;
+        </p>
+        <ol className="list-decimal pl-5 space-y-[10px]">
+          <li>
+            <strong>Fruit serving:</strong> one piece of medium-sized fruit, a
+            big handful of berries or a medium-size glass of 100% fruit juice.
+          </li>
+          <li>
+            <strong>Vegetable serving:</strong> fist-size portion of whole
+            vegetables, a 1/2 cup of tomato sauce or a medium-size bowl of
+            vegetable soup.
+          </li>
+          <li>
+            <strong>Lean meats &amp; fish serving:</strong> fist-size portion of
+            meat or fish.
+          </li>
+          <li>
+            <strong>Nuts &amp; seeds:</strong> palm-full of nuts/seeds or a
+            heaping tablespoon of nut/seed butter.
+          </li>
+          <li>
+            <strong>Whole grains:</strong> fist-size portion of rice, a
+            medium-size bowl of pasta or cereal or two slices of bread.
+          </li>
+          <li>
+            <strong>Dairy:</strong> glass of milk (or the amount you&apos;d
+            typically use in cereal), two slices of deli cheese, a
+            single-serving tub of yoghurt.
+          </li>
+          <li>
+            <strong>Refined grains:</strong> fist-size portion of rice, a
+            medium-size bowl of pasta or cereal or two slices of bread.
+          </li>
+          <li>
+            <strong>Sweets:</strong> one small cookie, 12oz of soda, 1
+            label-defined serving of sweets or chocolate (unless 80%+ cocoa),
+            one regular slice of cake, or scoop or bowl of ice cream.
+          </li>
+          <li>
+            <strong>Fried foods:</strong> one small bag of crisps, one fried
+            hamburger patty, 3–4 fried wings, small portion chips or one
+            doughnut or churro.
+          </li>
+          <li>
+            <strong>Fatty proteins:</strong> as per lean meats, a fist-size
+            portion of meat.
+          </li>
+        </ol>
+
+        <h2 className="font-serif mt-6 text-slate-800">Combination foods</h2>
+        <p>
+          Some foods are made up of two or more of these categories. Pepperoni
+          pizza, for instance, is comprised of (at least): fatty protein, dairy
+          (cheese), refined grains and vegetables (tomato sauce).
         </p>
         <p>
-          Sit occaecat deserunt proident qui nostrud veniam elit sunt. Officia
-          do id anim ullamco tempor est. Quis exercitation nulla adipisicing
-          aliqua elit ea. Deserunt qui nostrud laboris adipisicing ea Lorem
-          magna mollit elit eiusmod. Eiusmod enim aliquip minim dolore nulla ex
-          proident consequat magna labore ex. Est nisi Lorem fugiat cupidatat ad
-          sint pariatur sint non consequat.
+          For such complex foods, Fitzgerald recommends separating them into
+          their consistent parts and scoring each separately. We recommend using
+          Expediate in the same way.
+        </p>
+
+        <h2 className="font-serif mt-6 text-slate-800">Scoring</h2>
+        <p>
+          Once you have figured out what the portions you have consumed are, you
+          can use this matrix to score your day.
+        </p>
+        <p>
+          If you&apos;re using Expediate, you don&apos;t need to worry about
+          this matrix. We&apos;ll calculate your score for you.
+        </p>
+
+        <h2 className="font-serif mt-6 text-slate-800">
+          What about other foods?
+        </h2>
+        <p>There are many foodstuffs not covered by the DQS system, for example:</p>
+        <ol className="list-decimal pl-5 space-y-[10px]">
+          <li>
+            <strong>Condiments, sauces and spreads:</strong> if used in
+            moderation, these should not be scored. If using heavy loads of
+            mayo, buffalo sauce or similar fatty sauces, these should be counted
+            as negative points (-1 per portion).
+          </li>
+          <li>
+            <strong>Alcohol:</strong> each day, any alcoholic drink after your
+            first is counted as -2.
+          </li>
+          <li>
+            <strong>Coffee and tea:</strong> regular coffee and tea has no
+            negative score associated with it (and&nbsp;
+            <a
+              href="https://zoe.com/learn/coffee-gut-bacteria-zoe-study?srsltid=AfmBOoqv5l2Nb0LbTVE7DFskp7mny_zQ9ff-YRugWARbjLVpqpkcmiC3"
+              className="text-[#088FC4] underline"
+              target="_blank"
+            >
+              coffee in particular is
+              purportedly excellent for gut health
+            </a>
+            ). If you use sugar or syrups, these count as &quot;sweets&quot;.
+          </li>
+          <li>
+            <strong>Sport fuel:</strong> isotonic drinks, energy bars and so on
+            do not count positively or negatively towards score when used during
+            exercise. If consumed outside of exercise and made primarily from
+            whole grains they can be scored +1 for the first, -1 for the second
+            and -2 for each consumed thereafter. Those that are primarily sugar
+            should be counted as &quot;sweets&quot;.
+          </li>
+        </ol>
+
+        <h2 className="font-serif mt-6 text-slate-800">FAQs</h2>
+        <p>
+          <strong>What about fats, such as olive oil or butter?</strong>
+        </p>
+        <p>
+          There are many schools of thought on fat and their impact on the body,
+          positive or negative.&nbsp;
+          <a
+            href="https://www.trainingpeaks.com/blog/fat-and-the-endurance-athlete/"
+            className="text-[#088FC4] underline"
+            target="_blank"
+          >
+            Fitzgerald doesn&apos;t believe they&apos;re harmful.
+          </a>
+        </p>
+        <p>
+          Despite that, he hasn&apos;t provided any clear guidance on how to
+          score fats. We suggest that you treat them as condiments, sauces and
+          spreads (read above): using fats sparingly doesn&apos;t require
+          mention. If you use a lot, you should mark each serving as -1.
+        </p>
+        <p>
+          <strong>
+            Why doesn&apos;t condiments, sauces, spreads and alcohol count in
+            Expediate?
+          </strong>
+        </p>
+        <p>
+          While Fitzgerald suggests marking these down, we haven&apos;t
+          developed that functionality yet. If that&apos;s something you&apos;re
+          particularly interested in, please let us know via this{" "}
+          <a
+            href="https://forms.gle/mpg6tVbePJkPQQQ18"
+            className="text-[#088FC4] underline"
+          >
+            Google Form
+          </a>
+          .
         </p>
       </div>
     </section>

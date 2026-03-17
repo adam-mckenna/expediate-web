@@ -1,74 +1,101 @@
+import { ROUTES } from "@/lib/constants";
+
 const AboutPage = () => (
   <main className="text-slate-800">
-    <header className="min-h-40 flex items-center justify-center">
-      <h1 className="font-medium text-xl">About Expediate</h1>
+    <header className="min-h-62 flex flex-col items-center justify-center gap-1">
+      <h1 className="font-serif">About Expediate</h1>
+      <p className="text-[16px] leading-[140%] text-[#757575]">
+        What is Expediate, who made it, and why?
+      </p>
     </header>
 
-    <section className="bg-white">
-      <div className="p-4 grid gap-2  max-w-lg mx-auto pb-8">
-        <h2 className="font-serif mt-4">Some title</h2>
+    <section className="bg-white pb-8 pt-4">
+      <div className="p-4 md:p-8 grid gap-[10px] max-w-2xl mx-auto pb-12 text-[#5A5A5A]">
+        <h2 className="font-serif text-xl text-slate-800">
+          What is Expediate?
+        </h2>
         <p>
-          Irure ad nisi est laboris in ad consectetur veniam nostrud. Laboris eu
-          incididunt adipisicing aute ullamco anim. Pariatur in nisi voluptate
-          laboris ex laborum mollit aliquip ut. Laborum duis aliquip ipsum irure
-          velit do Lorem duis exercitation tempor aliqua aliqua Lorem. Pariatur
-          occaecat deserunt aute dolore sunt sit mollit elit fugiat voluptate.
-          Voluptate nulla ea proident veniam.
+          Hey there! Welcome to Expediate 👋
         </p>
         <p>
-          Cupidatat nulla do adipisicing ipsum elit do ullamco aliqua nulla ea
-          incididunt ad eiusmod id. Aliqua aliquip aliquip aliqua minim duis
-          minim et velit duis. Exercitation tempor exercitation nisi cillum
-          irure amet. Cillum excepteur excepteur esse laboris nulla cillum quis.
-        </p>
-        <p>
-          Eu reprehenderit incididunt eu do non ex tempor voluptate dolor
-          ullamco Lorem enim fugiat. Pariatur enim non sint duis mollit occaecat
-          cillum qui. Velit officia fugiat non in. Aliquip cupidatat nisi culpa
-          non aliqua laboris eiusmod officia Lorem.
-        </p>
-        <p>
-          Mollit reprehenderit sint tempor aute dolore reprehenderit ea
-          reprehenderit nulla. Consequat nostrud officia consectetur mollit
-          irure duis. Est ullamco voluptate quis reprehenderit aute non ad
-          veniam ea amet aliqua magna. Cillum consectetur elit ea pariatur non
-          do reprehenderit cupidatat adipisicing amet excepteur eiusmod ex. Enim
-          sit in minim quis cillum qui ad dolor ullamco et. Duis nostrud dolor
-          aliqua adipisicing reprehenderit. Laborum nostrud eiusmod sunt non ex
-          sunt voluptate exercitation nisi incididunt.
+          Expediate is a tool created for athletes to track their nutrition
+          quickly and easily using the <a href="https://tr3.run/articles/diet-quality-score-dqs-explained" target="_blank" className="text-[#088FC4] underline">DQS model</a> created by&nbsp;
+          <a href="https://mattfitzgerald.org/" className="text-[#088FC4] underline">
+            Matt Fitzgerald
+          </a>
+          .
         </p>
 
-        <h2 className="font-serif mt-4">Some title</h2>
+        <h2 className="font-serif text-xl mt-6 text-slate-800">
+          How to use Expediate
+        </h2>
         <p>
-          Eu ex cupidatat do consequat dolor nostrud cupidatat. Eiusmod nostrud
-          proident adipisicing magna nisi consequat irure reprehenderit quis
-          laboris. Ea est ex eu esse est minim esse ullamco sit sunt occaecat ex
-          id ut. Officia aliqua culpa ad ea eiusmod pariatur dolor eiusmod esse.
-          Laborum ad proident ut aliqua et voluptate mollit ea labore. Veniam
-          proident dolor labore consectetur excepteur tempor ut cillum fugiat
-          proident tempor sint.
+          The core idea of Expediate is speed and simplicity. No rigorous food
+          logging, no counting calories, no stress.
         </p>
         <p>
-          Qui eiusmod cupidatat aute reprehenderit labore qui deserunt Lorem sit
-          proident consectetur eu. Culpa anim eiusmod veniam quis fugiat do enim
-          voluptate reprehenderit quis. Mollit do consectetur elit irure
-          deserunt irure irure eu commodo ad in voluptate. Ea culpa cillum
-          dolore occaecat et esse. Duis incididunt non aliquip sit adipisicing
-          eu est do cillum deserunt in. Aliquip irure duis mollit sit
-          reprehenderit incididunt reprehenderit. Anim aliqua veniam est esse
-          nisi non qui Lorem in ad non nisi fugiat.
+          Expediate follows the DQS model. If you don’t know how that works,
+          give&nbsp;
+          <a href="https://tr3.run/articles/diet-quality-score-dqs-explained" className="text-[#088FC4] underline">
+            this guide
+          </a>&nbsp;
+          a quick read before you start.
         </p>
         <p>
-          Ullamco cupidatat irure esse nisi. Lorem deserunt magna nulla
-          adipisicing voluptate. Consequat et aliquip officia nostrud.
+          Once you’ve understood how the DQS model works, go to the&nbsp;
+          <a href={ROUTES.HOME} className="text-[#088FC4] underline">
+            Log Food
+          </a>&nbsp;
+          screen. In the text field, add your food as a comma separated list.
+          For example, “50g oats, 200ml milk, a handful of chia seeds, 1
+          banana...” and so on.
         </p>
         <p>
-          Sit occaecat deserunt proident qui nostrud veniam elit sunt. Officia
-          do id anim ullamco tempor est. Quis exercitation nulla adipisicing
-          aliqua elit ea. Deserunt qui nostrud laboris adipisicing ea Lorem
-          magna mollit elit eiusmod. Eiusmod enim aliquip minim dolore nulla ex
-          proident consequat magna labore ex. Est nisi Lorem fugiat cupidatat ad
-          sint pariatur sint non consequat.
+          Expediate will (hopefully) interpret your food log and give you a
+          score based on both the quantity and quality of what you ate.
+        </p>
+        <p>
+          And that’s it – for now, at least. This project is an MVP.
+        </p>
+        <p>
+          More features, such as user accounts, saved logs, dietary suggestions
+          and support for other food tracking models may come in the future.
+        </p>
+        <p>
+          For now, though, please be patient if something doesn’t work – and let
+          me know about it via the feedback form below.
+        </p>
+
+        <h2 className="font-serif text-xl mt-6 text-slate-800">
+          About the developer
+        </h2>
+        <p>
+          Hey, I’m <a href="https://adammckenna.online" target="_blank" className="text-[#088FC4] underline">Adam</a>. I’m a developer by day, and a keen runner in every gap
+          between. I’m also a co-founder of&nbsp;
+          <a href={ROUTES.ARTICLES} target="_blank" className="text-[#088FC4] underline">
+            tr3
+          </a>
+          .
+        </p>
+        <p>
+          I developed this app as a side-project to practise my Node.js skills.
+          I also created it because I believe that the DQS model is a fantastic
+          alternative to rigid calorie counting – but you can read more about
+          that&nbsp;
+          <a href={ROUTES.ARTICLES} target="_blank" className="text-[#088FC4] underline">
+            here
+          </a>
+          .
+        </p>
+
+        <h2 className="font-serif text-xl mt-6 text-slate-800">Feedback</h2>
+        <p>
+          If you’re using this app and you have feedback, good or bad, I’d love
+          to hear it. You can give feedback via this&nbsp;
+          <a href="https://forms.gle/mpg6tVbePJkPQQQ18" className="text-[#088FC4] underline">
+            Google Form
+          </a>&nbsp;
+          – I’ll be super grateful.
         </p>
       </div>
     </section>

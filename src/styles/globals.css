@@ -44,3 +44,11 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+h2 {
+  @apply text-[24px] leading-[120%] tracking-[-0.02em];
+}
+
+h1 {
+  @apply text-[42px] leading-[120%] tracking-[-0.02em] font-normal;
+}
