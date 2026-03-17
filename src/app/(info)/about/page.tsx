@@ -3,7 +3,9 @@ import { ROUTES } from "@/lib/constants";
 const AboutPage = () => (
   <main className="text-slate-800">
     <header className="min-h-62 flex flex-col items-center justify-center gap-1">
-      <h1 className="font-serif">About Expediate</h1>
+      <h1 className="font-serif text-[42px] leading-[120%] tracking-[-0.02em] font-normal">
+        About Expediate
+      </h1>
       <p className="text-[16px] leading-[140%] text-[#757575]">
         What is Expediate, who made it, and why?
       </p>

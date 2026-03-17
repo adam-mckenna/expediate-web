@@ -15,7 +15,9 @@ const CategoriesPage = () => {
   return (
     <main className="text-slate-800">
       <header className="min-h-62 flex flex-col items-center justify-center gap-1">
-        <h1 className="font-serif">Categories</h1>
+        <h1 className="font-serif text-[42px] leading-[120%] tracking-[-0.02em] font-normal">
+          Categories
+        </h1>
         <p className="text-[16px] leading-[140%] text-[#757575]">
           Explore every DQS category and the foods that belong in it.
         </p>

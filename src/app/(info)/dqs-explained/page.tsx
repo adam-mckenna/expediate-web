@@ -3,7 +3,9 @@ import Link from "next/link";
 const DQSExplainedPage = () => (
   <main className="text-slate-800">
     <header className="min-h-40 flex flex-col items-center justify-center gap-1">
-      <h1 className="font-serif">DQS Explained</h1>
+      <h1 className="font-serif text-[42px] leading-[120%] tracking-[-0.02em] font-normal">
+        DQS Explained
+      </h1>
       <p className="text-[16px] leading-[140%] text-[#757575]">
         What is DQS, and how does it work?
       </p>
@@ -75,7 +77,7 @@ const DQSExplainedPage = () => (
             <strong>Fruits:</strong> apples, oranges, bananas, strawberries,
             natural juices, etc.&nbsp;
             <Link
-              href="/categories/fruits"
+              href="/categories/fruit"
               className="text-[#088FC4] underline"
             >
               View the full list.
@@ -95,7 +97,7 @@ const DQSExplainedPage = () => (
             <strong>Lean meats &amp; fish:</strong> eggs, salmon, mackerel, lean
             turkey mince, chicken breast, etc.&nbsp;
             <Link
-              href="/categories/lean-meats-and-fish"
+              href="/categories/lean-meat-and-fish"
               className="text-[#088FC4] underline"
             >
               View the full list.
@@ -105,7 +107,7 @@ const DQSExplainedPage = () => (
             <strong>Nuts &amp; seeds:</strong> peanuts, almonds, chia seeds,
             flax, linseed, nut butters, etc.&nbsp;
             <Link
-              href="/categories/nuts-and-seeds"
+              href="/categories/nuts-seeds"
               className="text-[#088FC4] underline"
             >
               View the full list.

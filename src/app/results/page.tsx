@@ -14,7 +14,7 @@ import {
 } from "@/lib/constants";
 import { getResultsConfig } from "@/lib/utils";
 import { useResults } from "@/lib/hooks";
-import { ProgressBar, ChevronIcon, InfoIcon } from "@/components";
+import { ProgressBar, ChevronIcon, InfoIcon, Tooltip } from "@/components";
 
 type CategoryBreakdownProps = {
   category: {
@@ -193,9 +193,24 @@ const ResultsContent = () => {
                       <p className="text-lg font-bold text-[#02542D]">
                         +{category.score}
                       </p>
-                      <h4 className="font-md font-medium text-[#02542D]">
-                        {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
-                      </h4>
+                      <Tooltip
+                        content={
+                          FOOD_CATEGORY_DESCRIPTIONS[
+                            category.name as FoodCategory
+                          ]
+                        }
+                      >
+                        <div className="flex items-center gap-1 cursor-default">
+                          <h4 className="font-md font-medium text-[#02542D]">
+                            {
+                              FOOD_CATEGORY_LABELS[
+                                category.name as FoodCategory
+                              ]
+                            }
+                          </h4>
+                          <InfoIcon className="w-4 h-4 text-[#02542D]" />
+                        </div>
+                      </Tooltip>
                     </div>
                     <ProgressBar current={category.score} max={maxScore} />
                   </div>
@@ -218,9 +233,24 @@ const ResultsContent = () => {
                       <p className="text-lg font-bold text-[#C00F0C]">
                         {category.score}
                       </p>
-                      <h4 className="font-md font-medium text-[#900B09]">
-                        {FOOD_CATEGORY_LABELS[category.name as FoodCategory]}
-                      </h4>
+                      <Tooltip
+                        content={
+                          FOOD_CATEGORY_DESCRIPTIONS[
+                            category.name as FoodCategory
+                          ]
+                        }
+                      >
+                        <div className="flex items-center gap-1 cursor-default">
+                          <h4 className="font-md font-medium text-[#900B09]">
+                            {
+                              FOOD_CATEGORY_LABELS[
+                                category.name as FoodCategory
+                              ]
+                            }
+                          </h4>
+                          <InfoIcon className="w-4 h-4 text-[#900B09]" />
+                        </div>
+                      </Tooltip>
                     </div>
                     <ProgressBar
                       current={absoluteScore}

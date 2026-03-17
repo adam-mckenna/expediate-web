@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <header className="bg-white p-6 flex justify-between items-center">
       <Link
-        className="font-serif text-[#1E1E1E] text-xl mb-[1px]"
+        className="font-serif text-[#1E1E1E] text-xl mb-[1px] transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
         href={ROUTES.HOME}
       >
         Expedi<span className="text-[#BF6A02]/60">ate</span>
@@ -15,23 +15,32 @@ export const Header = () => {
       <nav>
         <ul className="flex gap-6">
           <li>
-            <Link className="text-[#1E1E1E] font-bold" href={ROUTES.HOME}>
+            <Link
+              className="text-[#1E1E1E] font-bold transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
+              href={ROUTES.HOME}
+            >
               Log Food
             </Link>
           </li>
           <li>
-            <Link className="text-[#1E1E1E]" href={ROUTES.ABOUT}>
+            <Link
+              className="text-[#1E1E1E] transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
+              href={ROUTES.ABOUT}
+            >
               About
             </Link>
           </li>
           <li>
-            <Link className="text-[#1E1E1E]" href={ROUTES.DQS_EXPLAINED}>
+            <Link
+              className="text-[#1E1E1E] transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
+              href={ROUTES.DQS_EXPLAINED}
+            >
               DQS Explained
             </Link>
           </li>
           <li>
             <Link
-              className="text-[#1E1E1E] inline-flex items-center gap-2"
+              className="text-[#1E1E1E] inline-flex items-center gap-2 transition-all duration-150 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-[#193C3E] focus:ring-offset-2 rounded active:scale-95"
               href={ROUTES.ARTICLES}
               target="_blank"
             >

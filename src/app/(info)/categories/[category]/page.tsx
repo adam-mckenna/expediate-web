@@ -40,7 +40,9 @@ const CategoryDetailPage = async ({ params }: CategoryPageProps) => {
   return (
     <main className="text-slate-800">
       <header className="min-h-62 flex flex-col items-center justify-center gap-1">
-        <h1 className="font-serif">{title}</h1>
+        <h1 className="font-serif text-[42px] leading-[120%] tracking-[-0.02em] font-normal">
+          {title}
+        </h1>
         <p className="text-[16px] leading-[140%] text-[#757575]">
           An exhaustive list of every food item considered a &quot;
           {title.toLowerCase()}&quot; by Expediate.
