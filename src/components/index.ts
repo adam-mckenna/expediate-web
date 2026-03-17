@@ -8,5 +8,6 @@ export {
   ChevronIcon,
   InfoIcon,
   ExternalLinkIcon,
+  SpinnerIcon,
 } from "./icons";
 export { ProgressBar } from "./ProgressBar";

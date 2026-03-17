@@ -1,3 +1,5 @@
+export type FoodCategory = (typeof FOOD_CATEGORIES)[number];
+
 export const FOOD_CATEGORIES = [
   "fruit",
   "vegetables",
@@ -11,8 +13,6 @@ export const FOOD_CATEGORIES = [
   "fatty-proteins",
   "unknown",
 ] as const;
-
-export type FoodCategory = (typeof FOOD_CATEGORIES)[number];
 
 export const FOOD_CATEGORY_LABELS: Record<FoodCategory, string> = {
   fruit: "Fruit",
