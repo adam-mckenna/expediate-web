@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { ROUTES } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -18,22 +19,22 @@ const AboutPage = () => (
     </header>
 
     <section className="bg-white pb-2 lg:pb-12 pt-6">
-      <div className="px-5 md:px-8 md:py-10 grid gap-4 max-w-2xl mx-auto pb-14 text-[oklch(var(--color-text-neutral-softer))]">
+      <div className="rich-text px-5 md:px-8 md:py-10 grid gap-4 max-w-2xl mx-auto pb-14">
         <h2 className="font-serif text-h2 leading-tight tracking-tight text-slate-800">
           What is Expediate?
         </h2>
         <p>Hey there! Welcome to Expediate 👋</p>
         <p>
           Expediate is a tool created for athletes to track their nutrition
-          quickly and easily using the{" "}
+          quickly and easily using the&nbsp;
           <a
             href="https://tr3.run/articles/diet-quality-score-dqs-explained"
             target="_blank"
             className="text-link hover:text-link-hover-alt underline"
           >
             DQS model
-          </a>{" "}
-          created by&nbsp;
+          </a>
+          &nbsp; created by&nbsp;
           <a
             href="https://mattfitzgerald.org/"
             className="text-link hover:text-link-hover-alt underline"
@@ -91,7 +92,7 @@ const AboutPage = () => (
           About the developer
         </h2>
         <p>
-          Hey, I’m{" "}
+          Hey, I’m&nbsp;
           <a
             href="https://adammckenna.online"
             target="_blank"

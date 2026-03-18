@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Results } from "@/lib/types";
 import { URL_PARAMS } from "@/lib/constants";
 import { decodeResults } from "@/lib/utils";
-import { splitCategoriesByScore } from "@/domain/results";
+import { splitCategoriesByScore } from "@/domain";
 
 /**
  * Hook that retrieves results from URL params (if present) or React Query cache and organises the data.

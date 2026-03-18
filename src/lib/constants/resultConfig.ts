@@ -1,6 +1,9 @@
-import { UpArrowIcon, NeutralIcon, DownArrowIcon } from "@/components/icons";
-import type { ResultsType, ResultsConfig } from "@/lib/types/resultsConfig";
+import { UpArrowIcon, NeutralIcon, DownArrowIcon } from "@/components";
+import { type ResultsType, type ResultsConfig } from "@/lib/types";
 
+/**
+ * Configurations for the results page.
+ */
 export const RESULTS_CONFIGS: Record<ResultsType, ResultsConfig> = {
   good: {
     type: "good",
@@ -38,4 +41,4 @@ export const RESULTS_CONFIGS: Record<ResultsType, ResultsConfig> = {
     iconClassName: "w-6 h-6",
     iconColor: "text-red-500",
   },
-} as const;
+};

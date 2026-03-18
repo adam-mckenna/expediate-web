@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
-import { useFormValidation, useLogFood } from "@/lib/hooks";
+import { useFoodLogValidation, useLogFood } from "@/lib/hooks";
 import { UI_CONSTANTS } from "@/lib/constants";
 import {
   ErrorMessage,
@@ -12,14 +12,26 @@ import {
   InfoIcon,
 } from "@/components";
 
+/**
+ * The mode of the log food field.
+ * - "fresh" - The log food field is in "fresh" mode: no food has yet been logged
+ * - "append" - The log food field is in append mode: food has already been logged, and this will append to the existing logs.
+ */
+export type LogFoodFieldMode = "fresh" | "append";  
+
 type LogFoodFieldProps = {
-  mode: "home" | "append";
+  mode: LogFoodFieldMode;
 };
 
+/**
+ * Form input for logging food intake.
+ * @param mode - The mode of the log food field
+ * @returns The LogFoodField component.
+ */
 export const LogFoodField = ({ mode }: LogFoodFieldProps) => {
   const [loggedFood, setLoggedFood] = useState("");
   const { mutate: logFood, isPending, error } = useLogFood({ mode });
-  const { validationError, validate, clearError } = useFormValidation();
+  const { validationError, validate, clearError } = useFoodLogValidation();
 
   const handleOnFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -49,18 +61,18 @@ export const LogFoodField = ({ mode }: LogFoodFieldProps) => {
     }
   };
 
-  const isHome = mode === "home";
+  const isFresh = mode === "fresh";
 
   return (
     <form
       className={`flex w-full ${
-        isHome
+        isFresh
           ? "flex-col gap-3 sm:flex-row sm:items-start sm:gap-4"
           : "flex-wrap gap-4"
       }`}
       onSubmit={handleOnFormSubmit}
     >
-      <div className={isHome ? "relative flex-1 w-full" : "relative w-full"}>
+      <div className={`relative w-full ${isFresh ? "flex-1" : ""}`}>
         <textarea
           value={loggedFood}
           onChange={({ target }) => handleInputChange(target.value)}
@@ -73,7 +85,7 @@ export const LogFoodField = ({ mode }: LogFoodFieldProps) => {
 
         <div
           className={`hidden sm:flex absolute right-2 items-center gap-2 ${
-            isHome ? "top-1.5 sm:top-0 sm:mt-2" : "top-0 mt-2"
+            isFresh ? "top-1.5 sm:top-0 sm:mt-2" : "top-0 mt-2"
           }`}
         >
           <Tooltip content="Provide your food items as a comma-separated list, and we’ll do the rest">
@@ -85,6 +97,7 @@ export const LogFoodField = ({ mode }: LogFoodFieldProps) => {
               <InfoIcon className="w-4 h-4 text-slate-900" />
             </button>
           </Tooltip>
+          
           <button
             type="submit"
             disabled={!loggedFood.trim() || isPending}

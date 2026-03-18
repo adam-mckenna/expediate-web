@@ -6,8 +6,11 @@ export const metadata: Metadata = {
     "See your Diet Quality Score breakdown and how today’s food choices added up.",
 };
 
-const ResultsLayout = ({ children }: { children: React.ReactNode }) => {
-  return children;
-};
+/**
+ * Results layout component. Used so that we can use state within content alongside server-side metadata.
+ * @param children - The children components.
+ * @returns The results layout component.
+ */
+const ResultsLayout = ({ children }: { children: React.ReactNode }) => children;
 
 export default ResultsLayout;

@@ -5,6 +5,14 @@ interface ProgressBarProps {
   className?: string;
 }
 
+/**
+ * A progress bar that displays the current value as a percentage of the maximum value.
+ * @param current - The current value of the progress bar.
+ * @param max - The maximum value of the progress bar.
+ * @param variant - The variant of the progress bar.
+ * @param className - The class name of the progress bar.
+ * @returns The ProgressBar component.
+ */
 export const ProgressBar = ({
   current,
   max,

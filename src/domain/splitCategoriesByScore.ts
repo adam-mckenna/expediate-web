@@ -6,6 +6,11 @@ export type ScoredCategory = {
   logs: Results["logs"][string]["logs"];
 };
 
+/**
+ * Splits the results object into positive, negative, and neutral categories.
+ * @param results - The results object to split.
+ * @returns The positive, negative, and neutral categories.
+ */
 export const splitCategoriesByScore = (results: Results | null) => {
   if (!results) {
     return {

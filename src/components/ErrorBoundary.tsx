@@ -15,6 +15,14 @@ interface State {
   error: Error | null;
 }
 
+/**
+ * ErrorBoundary component. Catches errors and displays a fallback UI.
+ * https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary
+ * @param children - The children components.
+ * @param fallback - The fallback UI to display.
+ * @param onError - The function to call when an error is caught.
+ * @returns The ErrorBoundary component.
+ */
 export class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -39,10 +47,10 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="min-h-screen flex items-center justify-center p-4">
           <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 border border-red-200">
-            <h2 className="text-2xl font-bold text-red-600 mb-4">
-              Something went wrong
+            <h2 className="text-2xl font-bold text-text-negative mb-4">
+              {UI_CONSTANTS.ERRORS.GENERIC}
             </h2>
-            <p className="text-gray-700 mb-4">
+            <p className="text-text-negative mb-4">
               {this.state.error?.message || UI_CONSTANTS.ERRORS.GENERIC}
             </p>
             <button
@@ -50,7 +58,7 @@ export class ErrorBoundary extends Component<Props, State> {
                 this.setState({ hasError: false, error: null });
                 window.location.href = "/";
               }}
-              className="px-4 py-2 bg-orange-400 text-white rounded hover:bg-orange-500 transition-colors"
+              className="px-4 py-2 bg-link text-white rounded hover:bg-link-hover-alt transition-colors"
             >
               Go back home
             </button>

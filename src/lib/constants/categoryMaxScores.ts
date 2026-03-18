@@ -16,7 +16,7 @@ export const CATEGORY_POSITIVE_MAX_SCORES: Record<FoodCategory, number> = {
   "fried-foods": 0, // No positive values
   "fatty-proteins": 0, // No positive values
   unknown: 0, // No positive values
-} as const;
+};
 
 /**
  * Maximum possible negative score (absolute value) for each food category.
@@ -35,7 +35,7 @@ export const CATEGORY_NEGATIVE_MAX_SCORES: Record<FoodCategory, number> = {
   "fried-foods": 12, // |-2| * 6
   "fatty-proteins": 10, // |-1| + |-1| + |-2| + |-2| + |-2| + |-2|
   unknown: 7, // Fallback
-} as const;
+};
 
 /**
  * Gets the maximum possible positive score for a category

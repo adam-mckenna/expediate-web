@@ -1,5 +1,11 @@
 import type { CategoryLogs, Results } from "@/lib/types";
 
+/**
+ * Merges food logs from two results objects.
+ * @param current - The current results object.
+ * @param incoming - The incoming results object.
+ * @returns The merged results object.
+ */
 export const mergeResults = (
   current: Results | undefined,
   incoming: Results,

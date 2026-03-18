@@ -94,6 +94,16 @@ body {
   font-family: var(--font-sans);
 }
 
+@layer components {
+  .rich-text p {
+    @apply text-[var(--color-text-neutral-softer)];
+  }
+
+  .rich-text li {
+    @apply text-[var(--color-text-neutral-softer)];
+  }
+}
+
 .green-gradient {
   background: linear-gradient(
     to bottom,

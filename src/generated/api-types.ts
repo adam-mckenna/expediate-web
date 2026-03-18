@@ -4,164 +4,164 @@
  */
 
 export interface paths {
-    "/log": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** A parsed and scored collection based on a food log input of comma-separated food items. */
-        post: operations["LogController_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+  "/log": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/categories": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get all categories and the food items inside. */
-        get: operations["CategoriserController_allCategories"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    /** A parsed and scored collection based on a food log input of comma-separated food items. */
+    post: operations["LogController_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/categories": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/categories/{category}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get all food items inside a specific category by category name. */
-        get: operations["CategoriserController_category"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** Get all categories and the food items inside. */
+    get: operations["CategoriserController_allCategories"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/categories/{category}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
+    /** Get all food items inside a specific category by category name. */
+    get: operations["CategoriserController_category"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
-    schemas: {
-        CompleteLog: {
-            /** @description Total DQS. */
-            totalScore: number;
-            /** @description Category-keyed logs. Keys are category slugs (e.g. 'fruit', 'whole-grains'). */
-            logs: {
-                [key: string]: components["schemas"]["CategoryLog"];
-            };
-        };
-        ScoredLogItem: {
-            /** @description DQS for this food item. */
-            score: number;
-            /** @description The food item logged. */
-            food: string;
-            /** @description The unit used to log the food (e.g. grams, serving, handful, ml, etc). */
-            unit: string | null;
-            /** @description Quantity consumed, based on unit. */
-            quantity: number;
-            /** @description DQS food category. */
-            category: string;
-        };
-        CategoryLog: {
-            /** @description Score total for this category. */
-            score: number;
-            /** @description All scored log items in this category. */
-            logs: components["schemas"]["ScoredLogItem"][];
-        };
-        LogDto: {
-            /** @description A comma-separated list of all the food ate */
-            log: string;
-        };
+  schemas: {
+    CompleteLog: {
+      /** @description Total DQS. */
+      totalScore: number;
+      /** @description Category-keyed logs. Keys are category slugs (e.g. 'fruit', 'whole-grains'). */
+      logs: {
+        [key: string]: components["schemas"]["CategoryLog"];
+      };
     };
-    responses: never;
-    parameters: never;
-    requestBodies: never;
-    headers: never;
-    pathItems: never;
+    ScoredLogItem: {
+      /** @description DQS for this food item. */
+      score: number;
+      /** @description The food item logged. */
+      food: string;
+      /** @description The unit used to log the food (e.g. grams, serving, handful, ml, etc). */
+      unit: string | null;
+      /** @description Quantity consumed, based on unit. */
+      quantity: number;
+      /** @description DQS food category. */
+      category: string;
+    };
+    CategoryLog: {
+      /** @description Score total for this category. */
+      score: number;
+      /** @description All scored log items in this category. */
+      logs: components["schemas"]["ScoredLogItem"][];
+    };
+    LogDto: {
+      /** @description A comma-separated list of all the food ate */
+      log: string;
+    };
+  };
+  responses: never;
+  parameters: never;
+  requestBodies: never;
+  headers: never;
+  pathItems: never;
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    LogController_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["LogDto"];
-            };
-        };
-        responses: {
-            /** @description A parsed, categorised and scored collection of food items */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CompleteLog"] & unknown;
-                };
-            };
-        };
+  LogController_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    CategoriserController_allCategories: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description An object containing all food categories, which themselves contain an array of their food items */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": Record<string, never>;
-                };
-            };
-        };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["LogDto"];
+      };
     };
-    CategoriserController_category: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                category: string;
-            };
-            cookie?: never;
+    responses: {
+      /** @description A parsed, categorised and scored collection of food items */
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        requestBody?: never;
-        responses: {
-            /** @description An array containing all the food items in the category */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": string[];
-                };
-            };
+        content: {
+          "application/json": components["schemas"]["CompleteLog"] & unknown;
         };
+      };
     };
+  };
+  CategoriserController_allCategories: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description An object containing all food categories, which themselves contain an array of their food items */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": Record<string, never>;
+        };
+      };
+    };
+  };
+  CategoriserController_category: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        category: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description An array containing all the food items in the category */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": string[];
+        };
+      };
+    };
+  };
 }

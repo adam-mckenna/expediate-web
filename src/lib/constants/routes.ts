@@ -1,3 +1,6 @@
+/**
+ * Routes for the app.
+ */
 export const ROUTES = {
   HOME: "/",
   RESULTS: "/results",
@@ -5,10 +8,16 @@ export const ROUTES = {
   DQS_EXPLAINED: "/dqs-explained",
   CATEGORIES: "/categories",
   ARTICLES: "https://tr3.run",
-} as const;
+};
 
+/**
+ * Type for the routes.
+ */
 export type Route = (typeof ROUTES)[keyof typeof ROUTES];
 
+/**
+ * URL parameters for the results page.
+ */
 export const URL_PARAMS = {
   RESULTS_DATA: "data",
-} as const;
+};

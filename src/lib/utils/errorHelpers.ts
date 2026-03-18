@@ -10,10 +10,20 @@ export const isApiError = (error: unknown): error is ApiError => {
   return error instanceof ApiError;
 };
 
+/**
+ * Check if an error is a network error.
+ * @param error - The error to check if it is a network error.
+ * @returns True if the error is a network error, false otherwise.
+ */
 export const isNetworkError = (error: unknown): error is NetworkError => {
   return error instanceof NetworkError;
 };
 
+/**
+ * Check if an error is a validation error.
+ * @param error - The error to check if it is a validation error.
+ * @returns True if the error is a validation error, false otherwise.
+ */
 export const isValidationError = (error: unknown): error is ValidationError => {
   return error instanceof ValidationError;
 };

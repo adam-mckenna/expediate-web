@@ -1,3 +1,6 @@
+/**
+ * UI constants for the app.
+ */
 export const UI_CONSTANTS = {
   FORM: {
     TEXTAREA: {
@@ -25,5 +28,14 @@ export const UI_CONSTANTS = {
   },
   RESULTS: {
     NO_RESULTS_MESSAGE: "No results available. Please log some food first.",
+    OVERVIEW_TITLE: "Overview",
+    POSITIVE_SCORES_TITLE: "Positive scores",
+    NEGATIVE_SCORES_TITLE: "Negative scores",
+    OTHER_TITLE: "Other",
+    COMPLETE_BREAKDOWN_TITLE: "Complete breakdown",
+    ANYTHING_ELSE_TITLE: "Anything else?",
+    ANYTHING_ELSE_DESCRIPTION:
+      "Missing entry or midnight snack, we’re not here to judge. Add it to today’s entry.",
+    UNKNOWN_ITEMS_LOGGED: "unknown items logged",
   },
-} as const;
+};

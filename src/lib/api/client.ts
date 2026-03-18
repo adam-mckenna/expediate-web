@@ -6,7 +6,16 @@ if (!API_URL) {
   throw new Error("NEXT_PUBLIC_API_URL is not defined");
 }
 
+/**
+ * API client for making requests to the API.
+ */
 export const apiClient = {
+  /**
+   * Makes a request to the API.
+   * @param endpoint - The endpoint to make the request to.
+   * @param options - The options for the request.
+   * @returns The response from the API.
+   */
   async request<T>(endpoint: string, options?: RequestInit): Promise<T> {
     const url = `${API_URL}${endpoint}`;
 

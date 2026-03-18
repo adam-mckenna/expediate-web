@@ -8,6 +8,13 @@ type TooltipProps = {
   align?: "center" | "left";
 };
 
+/**
+ * A tooltip that displays content when hovered over.
+ * @param content - The content of the tooltip.
+ * @param children - The children of the tooltip.
+ * @param align - The alignment of the tooltip.
+ * @returns 
+ */
 export const Tooltip = ({
   content,
   children,
@@ -24,6 +31,7 @@ export const Tooltip = ({
       onBlurCapture={() => setIsOpen(false)}
     >
       {children}
+      
       {isOpen && (
         <div
           className={
@@ -37,11 +45,7 @@ export const Tooltip = ({
               {content}
             </div>
             <div
-              className={
-                align === "left"
-                  ? "absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-tooltip-bg rotate-45"
-                  : "absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-tooltip-bg rotate-45"
-              }
+              className={`absolute ${align === "left" ? "top-1/2 -translate-y-1/2 -right-1" : "-top-1 left-1/2 -translate-x-1/2"} w-2 h-2 bg-tooltip-bg rotate-45`}
             />
           </div>
         </div>

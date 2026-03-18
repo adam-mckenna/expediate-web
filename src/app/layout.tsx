@@ -1,9 +1,10 @@
 import "@/styles/globals.css";
 
 import { QueryProvider } from "@/providers/QueryProvider";
-import { ErrorBoundary, Header, Footer } from "@/components";
 import { inter, breeSerif } from "@/lib/fonts";
 import type { Metadata } from "next";
+
+import { ErrorBoundary, Header, Footer } from "@/components";
 
 export const metadata: Metadata = {
   title: {

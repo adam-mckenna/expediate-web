@@ -6,6 +6,12 @@ interface ErrorMessageProps {
   className?: string;
 }
 
+/**
+ * Displays an error message.
+ * @param error - The error to display.
+ * @param className - The class name to apply to the error message.
+ * @returns
+ */
 export const ErrorMessage = ({ error, className = "" }: ErrorMessageProps) => {
   if (!error) return null;
 

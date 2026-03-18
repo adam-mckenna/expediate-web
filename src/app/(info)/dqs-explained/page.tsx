@@ -19,7 +19,7 @@ const DQSExplainedPage = () => (
     </header>
 
     <section className="bg-white pb-2 lg:pb-12 pt-6">
-      <div className="px-5 md:px-8 md:py-10 grid gap-4 max-w-2xl mx-auto pb-14 text-[oklch(var(--color-text-neutral-softer))]">
+      <div className="rich-text px-5 md:px-8 md:py-10 grid gap-4 max-w-2xl mx-auto pb-14">
         <h2 className="font-serif text-h2 leading-tight tracking-tight text-slate-800">
           What is DQS?
         </h2>
