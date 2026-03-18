@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Results } from "@/lib/types";
 import { URL_PARAMS } from "@/lib/constants";
 import { decodeResults } from "@/lib/utils";
+import { splitCategoriesByScore } from "@/domain/results";
 
 /**
  * Hook that retrieves results from URL params (if present) or React Query cache and organises the data.
@@ -37,37 +38,7 @@ export const useResults = () => {
   }, [resultsFromUrl, resultsFromCache, queryClient]);
 
   const { positiveCategories, negativeCategories, neutralCategories } =
-    useMemo(() => {
-      if (!results) {
-        return {
-          positiveCategories: [],
-          negativeCategories: [],
-          neutralCategories: [],
-        };
-      }
-
-      // Extract categories with their names from the object keys.
-      // todo: should we move this server-side?
-      const categories = Object.entries(results.logs)
-        .filter(
-          ([, category]) => category !== undefined && category.logs.length > 0,
-        )
-        .map(([name, category]) => ({
-          name: name,
-          score: category.score,
-          logs: category.logs,
-        }));
-
-      const positive = categories.filter(({ score }) => score > 0);
-      const negative = categories.filter(({ score }) => score < 0);
-      const neutral = categories.filter(({ score }) => score === 0);
-
-      return {
-        positiveCategories: positive,
-        negativeCategories: negative,
-        neutralCategories: neutral,
-      };
-    }, [results]);
+    useMemo(() => splitCategoriesByScore(results), [results]);
 
   return {
     results,
