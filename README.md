@@ -6,18 +6,16 @@ Matt Fitzgerald introduced the DQS system in his book, [Racing Weight](https://w
 
 This web app is the front‑end for Expediate: you paste everything you ate into a single text field, and the app sends it to the Expediate API to calculate your score and show a detailed breakdown by food category.
 
-
 ## 🥦 Diet Quality Score (DQS) Overview
 
 Fitzgerald’s DQS follows a point‑based system based on two factors:
 
-1. The _quality_ of the food  
+1. The _quality_ of the food
 2. The _quantity_ of the food
 
 Higher‑quality foods earn positive points, and lower‑quality foods subtract points. Categories include fruits, vegetables, lean meats & fish, whole grains, nuts & seeds, dairy, refined grains, sweets, fried foods, and fatty proteins.
 
 For the full scoring table and background, see the API README or the in‑app `DQS explained` page.
-
 
 ## 🧑‍💻 Tech Stack
 
@@ -37,7 +35,6 @@ The app is designed as a small, focused UI on top of the Expediate API.
 
 You’ll also need a running instance of the **Expediate API** and its base URL.
 
-
 ## 📦 Installation
 
 From the `expediate-web` directory:
@@ -45,8 +42,6 @@ From the `expediate-web` directory:
 ```bash
 npm install
 ```
-
-
 
 ## ⚙️ Environment Configuration
 
@@ -64,9 +59,8 @@ Then set:
 NEXT_PUBLIC_API_URL=http://localhost:3000
 ```
 
-- **`NEXT_PUBLIC_API_URL`**: Base URL for the Expediate API (e.g. `http://localhost:3000` or your deployed API URL).  
+- **`NEXT_PUBLIC_API_URL`**: Base URL for the Expediate API (e.g. `http://localhost:3000` or your deployed API URL).
 - This variable is required; the app will throw an error at startup if it’s missing.
-
 
 ## 💻 Development
 
@@ -127,4 +121,3 @@ From `package.json`:
   - Submit your logged food text.
   - Retrieve the computed DQS and per‑category breakdown.
 - For endpoint details, request/response shapes, and DQS internals, see the **Expediate API README** in the `expediate-api` project.
-

@@ -1,10 +1,13 @@
 import { apiClient } from "./client";
-import { Results, LogFoodRequest } from "@/lib/types";
 import { API_ENDPOINTS } from "@/lib/constants";
+import type {
+  ApiLogFoodRequest,
+  ApiLogFoodResponse,
+} from "@/lib/contracts/api";
 
 export const logApi = {
-  logFood: async (data: LogFoodRequest): Promise<Results> =>
-    apiClient.request<Results>(API_ENDPOINTS.LOG, {
+  logFood: async (data: ApiLogFoodRequest): Promise<ApiLogFoodResponse> =>
+    apiClient.request<ApiLogFoodResponse>(API_ENDPOINTS.LOG, {
       method: "POST",
       body: JSON.stringify(data),
     }),

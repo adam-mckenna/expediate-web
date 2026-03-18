@@ -3,12 +3,7 @@ import type { Results } from "@/lib/types";
 export type ScoredCategory = {
   name: string;
   score: number;
-  logs: Array<{
-    score: number;
-    food: string;
-    unit: string | null;
-    quantity: number;
-  }>;
+  logs: Results["logs"][string]["logs"];
 };
 
 export const splitCategoriesByScore = (results: Results | null) => {
@@ -21,11 +16,11 @@ export const splitCategoriesByScore = (results: Results | null) => {
   }
 
   const categories: ScoredCategory[] = Object.entries(results.logs)
-    .filter(([, category]) => category !== undefined && category.logs.length > 0)
+    .filter(([, category]) => category.logs.length > 0)
     .map(([name, category]) => ({
       name,
-      score: category!.score,
-      logs: category!.logs,
+      score: category.score,
+      logs: category.logs,
     }));
 
   return {
@@ -34,4 +29,3 @@ export const splitCategoriesByScore = (results: Results | null) => {
     neutralCategories: categories.filter(({ score }) => score === 0),
   };
 };
-

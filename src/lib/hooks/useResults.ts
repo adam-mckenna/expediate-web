@@ -37,8 +37,10 @@ export const useResults = () => {
     }
   }, [resultsFromUrl, resultsFromCache, queryClient]);
 
-  const { positiveCategories, negativeCategories, neutralCategories } =
-    useMemo(() => splitCategoriesByScore(results), [results]);
+  const { positiveCategories, negativeCategories, neutralCategories } = useMemo(
+    () => splitCategoriesByScore(results),
+    [results],
+  );
 
   return {
     results,

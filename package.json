@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "format": "prettier --write .",
+    "contracts:generate": "openapi-typescript ../expediate-api/openapi.json -o src/generated/api-types.ts",
     "dev": "next dev --turbopack -p 4001",
     "build": "next build",
     "start": "next start -p 4000",
@@ -26,6 +27,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
+    "openapi-typescript": "^7.9.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

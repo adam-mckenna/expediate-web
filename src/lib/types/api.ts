@@ -1,33 +1,9 @@
-export type LogItem = {
-  score: number;
-  food: string;
-  unit: string | null;
-  quantity: number;
-};
+import type { ApiLogFoodRequest, ApiLogFoodResponse } from "@/lib/contracts/api";
+import type { components } from "@/generated/api-types";
 
-export type CategoryLogs = {
-  name: string;
-  score: number;
-  logs: Array<LogItem>;
-};
+// Frontend-wide API contract types (generated from the API's OpenAPI spec).
+export type LogFoodRequest = ApiLogFoodRequest;
+export type Results = ApiLogFoodResponse;
 
-export type Results = {
-  totalScore: number;
-  logs: {
-    fruit?: CategoryLogs;
-    vegetables?: CategoryLogs;
-    "lean-meat-and-fish"?: CategoryLogs;
-    "nuts-seeds"?: CategoryLogs;
-    "whole-grains"?: CategoryLogs;
-    dairy?: CategoryLogs;
-    "refined-grains"?: CategoryLogs;
-    sweets?: CategoryLogs;
-    "fried-foods"?: CategoryLogs;
-    "fatty-proteins"?: CategoryLogs;
-    unknown?: CategoryLogs;
-  };
-};
-
-export type LogFoodRequest = {
-  log: string;
-};
+export type CategoryLogs = components["schemas"]["CategoryLog"];
+export type LogItem = components["schemas"]["ScoredLogItem"];
