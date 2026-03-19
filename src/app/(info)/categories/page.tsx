@@ -36,7 +36,7 @@ const CategoriesPage = () => {
           {visibleCategories.map((category) => (
             <article
               key={category}
-              className="pb-4 border-b border-[var(--color-footer-border)]"
+              className="pb-4 border-b border-[var(--color-surface-dark-border)]"
             >
               <h2 className="font-serif leading-tight tracking-tight">
                 <Link

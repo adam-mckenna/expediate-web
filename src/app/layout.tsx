@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import { QueryProvider } from "@/providers/QueryProvider";
-import { inter, breeSerif } from "@/lib/fonts";
+import { inter, breeSerif } from "@/lib/utils";
 import type { Metadata } from "next";
 
 import { ErrorBoundary, Header, Footer } from "@/components";

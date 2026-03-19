@@ -16,7 +16,7 @@ export const ROUTES = {
 export type Route = (typeof ROUTES)[keyof typeof ROUTES];
 
 /**
- * URL parameters for the results page.
+ * URL parameters for the app.
  */
 export const URL_PARAMS = {
   RESULTS_DATA: "data",

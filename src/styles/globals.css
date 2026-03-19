@@ -11,21 +11,32 @@
   --color-background-dark: #0a0a0a;
   --color-foreground-dark: #ededed;
 
-  /* Gradients */
-  --color-green-gradient-from: #34c759;
-  --color-green-gradient-to: #14ae5c;
-  --color-gray-gradient-from: #757575;
-  --color-gray-gradient-to: #5a5a5a;
-  --color-red-gradient-from: #ef4444;
-  --color-red-gradient-to: #dc2626;
-
-  /* Focus ring */
-  --color-focus-ring: #193c3e;
-
   /* Brand / accents */
   --color-brand-primary: #bf6a02;
   --color-brand-primary-soft: #fff3d9;
   --color-brand-primary-soft-border: #f5e2ba;
+
+  /* Score text */
+  --color-score-positive: #14ae5c;
+  --color-score-negative: #c00f0c;
+
+  /* Positive / negative text */
+  --color-text-positive: #02542d;
+  --color-text-positive-hover: #01402a;
+  --color-text-negative: #900b09;
+  --color-text-negative-hover: #7a0604;
+  --color-text-neutral-hover: #606060;
+
+  /* Gradients */
+  --color-positive-gradient-from: #34c759;
+  --color-positive-gradient-to: var(--color-score-positive);
+  --color-negative-gradient-from: #ef4444;
+  --color-negative-gradient-to: #dc2626;
+  --color-neutral-gradient-from: #757575;
+  --color-neutral-gradient-to: #5a5a5a;
+
+  /* Focus ring */
+  --color-focus-ring: #193c3e;
 
   /* Text neutrals */
   --color-text-neutral-soft: #757575;
@@ -39,25 +50,12 @@
   --color-surface-negative-border: #900b09;
   --color-surface-neutral: #f5f5f5;
   --color-surface-neutral-border: #757575;
-
-  /* Footer */
-  --color-footer-background: #f0f0f0;
-  --color-footer-border: #d9d9d9;
-  --color-footer-text: #767676;
+  --color-surface-dark: #767676;
+  --color-surface-dark-border: #d9d9d9;
+  --color-surface-dark-background: #f0f0f0;
 
   /* Inputs */
   --color-input-border: #c3c3c3;
-
-  /* Score text */
-  --color-score-positive: #14ae5c;
-  --color-score-negative: #c00f0c;
-
-  /* Positive / negative text */
-  --color-text-positive: #02542d;
-  --color-text-positive-hover: #01402a;
-  --color-text-negative: #900b09;
-  --color-text-negative-hover: #7a0604;
-  --color-text-neutral-hover: #606060;
 
   /* Tooltip */
   --color-tooltip-bg: #3e3e3e;
@@ -104,33 +102,33 @@ body {
   }
 }
 
-.green-gradient {
+.positive-gradient {
   background: linear-gradient(
     to bottom,
-    var(--color-green-gradient-from),
-    var(--color-green-gradient-to)
+    var(--color-positive-gradient-from),
+    var(--color-positive-gradient-to)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.gray-gradient {
+.neutral-gradient {
   background: linear-gradient(
     to bottom,
-    var(--color-gray-gradient-from),
-    var(--color-gray-gradient-to)
+    var(--color-neutral-gradient-from),
+    var(--color-neutral-gradient-to)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.red-gradient {
+.negative-gradient {
   background: linear-gradient(
     to bottom,
-    var(--color-red-gradient-from),
-    var(--color-red-gradient-to)
+    var(--color-negative-gradient-from),
+    var(--color-negative-gradient-to)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

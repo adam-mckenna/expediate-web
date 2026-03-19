@@ -28,12 +28,12 @@ export const ProgressBar = ({
       ? {
           width: `${percentage}%`,
           background:
-            "linear-gradient(to right, var(--color-red-gradient-from), var(--color-red-gradient-to))",
+            "linear-gradient(to right, var(--color-negative-gradient-from), var(--color-negative-gradient-to))",
         }
       : {
           width: `${percentage}%`,
           background:
-            "linear-gradient(to right, var(--color-green-gradient-from), var(--color-green-gradient-to))",
+            "linear-gradient(to right, var(--color-positive-gradient-from), var(--color-positive-gradient-to))",
         };
 
   return (
