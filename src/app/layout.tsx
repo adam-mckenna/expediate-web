@@ -6,7 +6,11 @@ import type { Metadata } from "next";
 
 import { ErrorBoundary, Header, Footer } from "@/components";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://expediate.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Expediate",
     template: "%s | Expediate",
@@ -24,6 +28,18 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   themeColor: "oklch(var(--color-brand-primary-soft))",
+  openGraph: {
+    title: "Expediate",
+    description: "Simple food tracking for athletes",
+    url: siteUrl,
+    siteName: "Expediate",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Expediate",
+    description: "Simple food tracking for athletes",
+  },
 };
 
 const RootLayout = ({
